@@ -1,0 +1,3 @@
+Tipografia: font-family: 'Inter', sans-serif;
+
+Color verde del CONALEP:  Verde PANTONE 335C / RGB(0,126, 103);
