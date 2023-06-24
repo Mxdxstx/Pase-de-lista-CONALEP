@@ -13,6 +13,9 @@ if(!empty($_POST['btningresar'])){
         $_SESSION["nombre"]=$datos->nombre;
         $_SESSION["id_cargo"]=$datos->id_cargo;
 
+        if($datos->id_cargo == 1){
+            header("location:admin.php");
+        }
         if($datos->id_cargo == 2){
             header("location:docentes.php");
         }
