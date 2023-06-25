@@ -9,25 +9,23 @@
 </head>
 <body>
     <div class="login-container">
+    <header>
+            <img src="img/LogoConalepJuarezI.png" alt="Logo plantel conalep Juarez I"/>
+        </header>
         <form method="post" action="">
-            <h1>Inicio de sesión</h1>
+       
+            <h1>¡Bienvendido!</h1>
+            
+            <h2>Inicio de sesión</h2>
             <?php
             include("controladores/conexion.php");
             include("controladores/controlador-login.php");
             ?>
-            <div class="input">
-                <input type="text" name="usuario" placeholder="Nombre de usuario">
-            </div class="input">
-            <div class="input">
-                <input type="password" name="password" placeholder="Contraseña">
+            <div class="inputs">
+                <div><input class="txt" type="text" name="usuario" placeholder="Nombre de usuario"></div>
+                <div><input class="txt" type="password" name="password" placeholder="Contraseña"></div>
+                <div><input class="btn" type="submit" value="Iniciar sesión" name="btningresar"></div>
             </div>
-            <div class="view">
-                
-            </div class="input">
-            <div>
-                <input class="btn" type="submit" value="INICIAR SESIÓN" name="btningresar">
-            </div>
-
         </form>
 
     </div>

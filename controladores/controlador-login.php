@@ -21,11 +21,11 @@ if(!empty($_POST['btningresar'])){
         }
           
        }else{
-        echo '<div class="alert" >CREDENCIALES DE ACCESO INCORRECTAS</div>';
+        echo '<div class="alert" >¡Credenciales incorrectas!</div>';
        }
 
     } else {
-        echo '<div class="alert" >CAMPOS VACÍOS</div>';
+        echo '<div class="alert" >¡Hay campos vacíos!</div>';
     }
     
 }
