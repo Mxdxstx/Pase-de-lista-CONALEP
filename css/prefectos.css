@@ -1,0 +1,146 @@
+/* Estilo de elemento body */
+body {
+    margin:0;
+    padding:0;
+    border:0;           
+    width:100%;
+    background:#F0F0F0;  
+    min-width:600px; /* Mínimo de ancho. Si no es necesario puede ser eliminado */
+    font-size:90%;
+    font-family: 'Inter', sans-serif;
+}
+
+.envoltura {
+    position:relative;  /* Esto arregla un bug en IE7 */
+    clear:both;
+    float:left;
+    width:100%;         /* el ancho de toda la página */
+    overflow:hidden;        
+}
+/* configuración en común de las columnas */
+.columnas {
+    float:left;
+    width:100%;
+    position:relative;
+}
+td, th{
+	border-collapse: collapse;
+	min-width:150px;
+	max-width:150px;
+	border: 1px solid black;
+}
+.col1,
+.col2
+{
+    float: left;
+    position: relative;
+    padding: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+/* 2 columnas - configuración para el menú izquierdo */
+.envoltura .columnas {
+    right:85%;          
+    margin-top: 20px;
+}
+.envoltura .col1 {
+    width:83%;          /* el ancho de la columna derecha */
+    left:100%;          
+    background:#fff;
+    padding: 5px;
+    min-height: 550px;
+}
+.envoltura .col2 {
+    width:13%;          /* el ancho de la columna izquierda */
+    left:2%;            
+    background:#fff;
+	min-height: 550px;
+}
+
+
+/* Estilo para el encabezado */
+.encabezado {
+    display: flex;
+	justify-content: space-between;
+    clear: both;
+    float: left;
+    width: 99%;
+    padding: 5px;
+    background-color: rgb(0,126, 103);
+	padding-left: 20px;
+
+}
+
+.encabezado h3 {
+    margin-right: 800px;
+}
+
+.encabezado .cerrar-sesion {
+    margin-left: 10px;
+    color: #000000;
+    padding: 20px 30px; 
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px; 
+	border: 1px solid black;
+	background: #e7e7e7;
+	padding-left: -20px;
+}
+
+.envoltura .generar{
+	margin-left: 10px;
+    color: #000000;
+    padding: 5px 10px; 
+    border-radius: 0px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px; 
+	border: 1px solid black;
+	background: #e7e7e7;
+	padding-left: -20px;
+}
+.title {
+    font-size: 1.25em;
+    position: relative;
+    margin: 0 auto 1em;
+    padding: 1em 1em .25em 1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.title:after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 200px;
+    height: 4px;
+    margin-left: -100px;
+    content: '';
+    background-color: #fff;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+th, td {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+th {
+  background-color: rgb(0,126, 103);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table {
+  border: 1px solid #ccc;
+}
+
+
