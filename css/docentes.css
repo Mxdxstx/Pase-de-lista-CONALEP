@@ -6,9 +6,18 @@ header{
     display: flex;
     height: 20vh;
 }
+.img img{
+  width: 200px;
+	height: auto;
+}
 .title_text{
     flex:1;
     text-align: center;
+    color: rgb(0, 126, 103);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+.title_text h1{
+  margin-bottom: -30;
 }
 .salir{
     margin-top:25px;
@@ -28,7 +37,8 @@ header{
 
 .dropdowns{
     flex:1;
-    background-color: white;
+    background:rgb(0, 126, 103);
+    color:white;
     padding: 15px;
     width:25%;
     height: 65vh;
@@ -37,8 +47,15 @@ header{
 .semestres{
     padding-bottom:30px;
 }
+
 .grupos{
     padding-bottom:30px;
+}
+#semestre, #grupo{
+  width: 100%;
+  height: 25px;
+  border-radius: 5px;
+  lighting-color: rgb(0, 126, 103);
 }
 .asistencia{
     padding-bottom:30px;
@@ -49,6 +66,11 @@ header{
   width:75%;
   margin-left:2%;
   padding: 10px;
+}
+
+.grid, .dropdowns{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 10px;
 }
 
 th{
@@ -107,11 +129,11 @@ td{
   }
   
   input:checked + .slider {
-    background-color:rgb(0, 126, 103);
+    background-color:rgb(221, 128, 34);
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px rgb(0, 89, 72);
+    box-shadow: 0 0 1px rgb(221, 128, 34);
   }
   
   input:checked + .slider:before {

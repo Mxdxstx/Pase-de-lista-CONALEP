@@ -18,11 +18,14 @@ if(empty($_SESSION["id"])) {
 </head>
 <body>
     <header>
+        <div class="img">
+            <img src="img/LogoConalepJuarezI.png" alt="Logo plantel conalep Juarez I"/>
+        </div>
         <div class="date_time">
 
         </div>
         <div class="title_text">
-            <h1>DOCENTES</h1><br/>
+            <h1>Docentes</h1><br/>
             <h2>Pase de lista</h2>
         </div>
         <div class="salir">
@@ -34,7 +37,7 @@ if(empty($_SESSION["id"])) {
         <div class="dropdowns">
             <div class="semestres">
 
-                <label for="semestre">Semestre</label><br/>
+                <label for="semestre">Semestre</label><br/><br/>
                 <select name="semestre" id="semestre">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -44,16 +47,16 @@ if(empty($_SESSION["id"])) {
                     <option value="6">6</option>
                 </select>
             </div>
-
+            <br/><br/>
             <div class="grupos">
-            <label for="grupo">Elegir grupo</label><br/>
+            <label for="grupo">Elegir grupo</label><br/><br/>
                 <select name="grupo" id="grupo">
                     <option value="101-i">101-i</option>
                     <option value="101-i">201-i</option>
                     <option value="101-i">301-i</option>
                 </select>
             </div>
-
+            <br/><br/>
             <div class="asistentcia">
                 <p>Mostrar solo los que asistieron</p>
                 <label class="switch">
@@ -62,7 +65,6 @@ if(empty($_SESSION["id"])) {
                 </label>
             </div>
         </div>
-
         <div class="grid">
             <table class="alumnos">
                     <tr>
