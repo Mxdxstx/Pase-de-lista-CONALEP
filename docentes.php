@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="css/estilos.css">
 <?php
 session_start();
-if(empty($_SESSION["id"])) {
+if (empty($_SESSION["id"])) {
     header("location: index.php");
 }
 
@@ -10,23 +10,25 @@ if(empty($_SESSION["id"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Docentes</title>
 </head>
+
 <body>
     <header>
         <div class="img">
-            <img src="img/LogoConalepJuarezI.png" alt="Logo plantel conalep Juarez I"/>
+            <img src="img/LogoConalepJuarezI.png" alt="Logo plantel conalep Juarez I" />
         </div>
         <div class="date_time">
 
         </div>
         <div class="title_text">
-            <h1>Docentes</h1><br/>
-            <h2>Pase de lista</h2>
+            <h1>Docentes</h1><br />
+            <h2>Asistencia</h2>
         </div>
         <div class="salir">
             <a href="controladores/controlador-cerrar-sesion.php" class="btn_salir">Cerrar sesión</a>
@@ -35,52 +37,53 @@ if(empty($_SESSION["id"])) {
 
     <section class="main">
         <div class="dropdowns">
-            <div class="semestres">
-
-                <label for="semestre">Semestre</label><br/><br/>
-                <select name="semestre" id="semestre">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                </select>
-            </div>
-            <br/><br/>
             <div class="grupos">
-            <label for="grupo">Elegir grupo</label><br/><br/>
-                <select name="grupo" id="grupo">
-                    <option value="101-i">101-i</option>
-                    <option value="101-i">201-i</option>
-                    <option value="101-i">301-i</option>
+                <label for="grupo">Elegir grupo</label><br /><br />
+                <select name="grupo" id="grupo" onchange="cargarAlumnos()">
+                    <option value="">Seleccionar Grupo</option>
+                    <?php
+                    include("controladores/conexion.php");
+                    $sql = "SELECT id_grupo, nombre_grupo from grupos";
+                    $resultado = $conexion->query($sql);
+                    if ($resultado->num_rows > 0) {
+                        while ($fila = $resultado->fetch_assoc()) {
+                            echo "<option value='" . $fila["id_grupo"] . "'>" . $fila["nombre_grupo"] . "</option>";
+                        }
+                    } else {
+                        echo "<option value='0'>No se encontraron ciudades</option>";
+                    }
+                    ?>
                 </select>
             </div>
-            <br/><br/>
+            <br /><br />
             <div class="asistentcia">
                 <p>Mostrar solo los que asistieron</p>
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" id="asistieron">
                     <span class="slider round"></span>
                 </label>
             </div>
         </div>
         <div class="grid">
-            <table class="alumnos">
-                    <tr>
-                        <th>No.Control</th>
-                        <th>Nombre</th>
-                        <th>e-mail</th>
-                        <th>Fecha</th>
-                    </tr>
-                    <tr>
-                        <td>19111823</td>
-                        <td> Angel Ivan Modesto Hernandez</td>
-                        <td> modestoivan19@gmail.com</td>
-                        <td><?php echo  date('Y-m-d');?></td>
-                    </tr>
-            </table>
+            <div id="tablaAlumnos">
+                <script>
+                    function cargarAlumnos() {
+                        var selectedGrupo = document.getElementById("grupo").value;
+
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("tablaAlumnos").innerHTML = this.responseText;
+                            }
+                        };
+                        xhttp.open("GET", "controladores/cargar-alumnos.php?grupo=" + selectedGrupo, true);
+                        xhttp.send();
+                    }
+                </script>
+            </div>
         </div>
     </section>
+
 </body>
+
 </html>
