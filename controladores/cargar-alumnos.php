@@ -3,7 +3,7 @@ include("conexion.php");
 
 $grupoSeleccionado = $_GET["grupo"];
 
-$sql = "SELECT matricula, a_paterno, nombres, grupos.nombre_grupo AS grupo
+$sql = "SELECT matricula, primer_apellido, nombres, grupos.clave_grupo AS grupo
         FROM alumnos
         INNER JOIN grupos ON alumnos.id_grupo = grupos.id_grupo
         WHERE grupos.id_grupo = '$grupoSeleccionado'
@@ -13,9 +13,15 @@ $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
+        echo "<tr>
+                <td>Matricula</td>
+                <td>P. Apellido</td>
+                <td>Nombre(s)</td>
+                <td>Grupo</td>
+            </tr>";
         echo "<tr>";
         echo "<td>" . $fila["matricula"] . "</td>";
-        echo "<td>" . $fila["a_paterno"] . "</td>";
+        echo "<td>" . $fila["primer_apellido"] . "</td>";
         echo "<td>" . $fila["nombres"] . "</td>";
         echo "<td>" . $fila["grupo"] . "</td>";
         echo "</tr>";
