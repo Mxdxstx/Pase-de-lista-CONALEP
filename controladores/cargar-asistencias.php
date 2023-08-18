@@ -8,10 +8,13 @@ $sql = "SELECT
     alumnos.primer_apellido as p_apellido, 
     alumnos.segundo_apellido as s_apellido,
     alumnos.nombres as nombres, 
+    grupos.clave_grupo as grupo,
     fecha_hora
     FROM asistencias
     INNER JOIN alumnos
     ON asistencias.matricula=alumnos.matricula
+    INNER JOIN grupos
+    ON alumnos.id_grupo = grupos.id_grupo
     WHERE fecha_hora LIKE '%$fechaHoraActual%'
     ORDER BY fecha_hora DESC";
 
@@ -26,16 +29,18 @@ if ($resultado->num_rows > 0) {
     <td>Fecha y Hora</td>
     </tr>";
     while ($fila = $resultado->fetch_assoc()) {
-
         echo "<tr>";
         echo "<td>" . $fila["matricula"] . "</td>";
         echo "<td>" . $fila["p_apellido"]."     ".$fila["s_apellido"] . "</td>";
         echo "<td>" . $fila["nombres"] . "</td>";
+        echo "<td>" . $fila["grupo"] . "</td>";
         echo "<td>" . $fila["fecha_hora"] . "</td>";
         echo "</tr>";
     }
 }else{
     echo "<p>No se encontraron registros</p>";
 }
+
+$conexion->close();
 
 ?>

@@ -27,7 +27,7 @@ if (empty($_SESSION["id"])) {
 
         </div>
         <div class="title_text">
-            <h1>Docentes</h1><br />
+            <h1>Docentes</h1>
             <h2>Asistencia</h2>
         </div>
         <div class="salir">

@@ -18,8 +18,10 @@ include("conexion.php");
                 echo "<p class='bad'>Error al insertar el registro: " . $conexion->error."</p>";
             }
         }else {
-            echo "<p class='alert'>La matrícula no existe en la base de datos.</p>";
+            echo "<p class='alert'>La matricula ingresada no existe en la base de datos.</p>";
         }
+    }else{
+        echo "<p class='alert'>No se ha ingresado ninguna matricula.</p>";
     }
         $conexion->close();
     }
