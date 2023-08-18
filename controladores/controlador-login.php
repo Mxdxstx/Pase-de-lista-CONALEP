@@ -26,8 +26,7 @@ if(!empty($_POST['btningresar'])){
 
     } else {
         echo '<div class="alert" >¡Hay campos vacíos!</div>';
-    }
-    
+    } 
 }
 
 ?>
