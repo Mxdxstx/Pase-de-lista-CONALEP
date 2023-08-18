@@ -15,27 +15,78 @@ date_default_timezone_set('America/Chihuahua');
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/prefectos.css">
+	<link rel="stylesheet" href="css/estilosReportes.css">
 	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="css/reportes.css">
+	<link rel="stylesheet" href="css/prefectos.css">
+	
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
 	<title>Pase de lista</title>
 </head>
 
 <body>
 	<header>
-		<div class="img">
-			<img src="img/LogoConalepJuarezI.png" alt="Logo plantel conalep Juarez I" />
-		</div>
-		<div class="date_time">
-
-		</div>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
 		<div class="title_text">
-			<h1>Prefectura</h1><br />
-			<h2>Pase de lista</h2>
+			<h1>Pase de Lista</h1>
 		</div>
-		<div class="salir">
-			<a href="controladores/controlador-cerrar-sesion.php" class="btn_salir">Cerrar sesión</a>
-		</div>
-	</header>
+		
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img src="img/Img_Prefectos/logo.png" width="35">
+			
+        </div>
+		
+        <div class="options__menu">	
+			
+			<a href="inicioPrefectos.php" >
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+            <a href="prefectos.php" class="selected">
+                <div class="option">
+                <i class="fa-solid fa-check" title="Reporte Por Alumno"></i>
+					<h4>Pase De Lista</h4>
+                </div>
+            </a>    
+            <a href="reportesAlumnos.php" >
+                <div class="option">
+					<i class="fa-solid fa-user" title="Reporte Por Alumno"></i>
+					<h4>Reportes Por Alumno</h4>
+                </div>
+            </a>
+			
+			<a href="reportesFecha.php" >
+                <div class="option">
+					<i class="fa-solid fa-calendar-days" title="Reporte Por Fecbas"></i>
+					<h4>Reportes Por Fechas</h4>
+                </div>
+            </a>
+			
+			<a href="reportesPeriodo.php" >
+                <div class="option">
+					<i class="fa-solid fa-chart-simple" title="Reporte Por Periodo"></i>
+					<h4>Reportes Por Periodo</h4>
+                </div>
+            </a>
+			
+			<a href="controladores/controlador-cerrar-sesion.php" >
+                <div class="option">
+					<i class="fa-solid fa-right-to-bracket" title="Cerrar Sesion"></i>
+                    <h4>Cerrar Sesion</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+
 	<div class="main">
 		<form class="tabla" action="prefectos.php" method="post">
 			<input type="text" placeholder="Matricula" name="matricula" />

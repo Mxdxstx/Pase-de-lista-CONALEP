@@ -22,7 +22,7 @@ $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {
     echo "<tr class='encabezados'>
-    <td>Matricula</td>
+    <td>Matrícula</td>
     <td>Apellido(s)</td>
     <td>Nombre(s)</td>
     <td>Grupo</td>
