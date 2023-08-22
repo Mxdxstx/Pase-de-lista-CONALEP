@@ -6,10 +6,11 @@ if(empty($_SESSION["id"])) {
 include 'controladores/conexion.php';
 
 $where ="";
+
 if(!empty($_POST)){
-	$valor = $_POST['buscar'];
+	$valor = $_POST['fecha'];
 	if(!empty($valor)){
-		$where = "WHERE alumnos.matricula LIKE '%$valor%'";
+		$where = "WHERE asistencias.fecha_hora LIKE '%$valor%'";
 	}
 }
 
@@ -65,7 +66,7 @@ date_default_timezone_set('America/Chihuahua');
             </a>
             <a href="prefectos.php" >
                 <div class="option">
-                <i class="fa-solid fa-check" title="Reporte Por Alumno"></i>
+                <i class="fa-solid fa-check" title="Pase De Lista"></i>
 					<h4>Pase De Lista</h4>
                 </div>
             </a>        
@@ -101,18 +102,19 @@ date_default_timezone_set('America/Chihuahua');
         </div>
 
     <main>
-        <h3 class="text-center">
+		<h3 class="text-center">
 			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-				Buscar Matricula de Alumno 
-				<input type="text" name="buscar" class="form_control" placeholder="" />
-				<input type="submit" name="buscador" value="Buscar" class="btn-block btn-sm btn-success">
-				<input type="submit" name="limpiar" value="Limpiar Consulta" class="btn-block btn-sm btn-success">
-				<input type="date">
-				<button id="btnExportar" class="btn btn-success">
+					<label for="fecha">Selecciona una fecha:</label>
+					<input type="date" id="fecha" name="fecha">
+					<button type="submit">Buscar</button>
+					<button id="btnExportar" class="btn btn-success">
 					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
-				</button>
+					</button>
+					<button type="button" onclick="limpiar()">Limpiar</button>
+
 			</form>
 		</h3>
+
 			<div style="overflow: auto; width: 1120px; height: 600px">
 				<table id="datos">
 					<thead class="text-muted">
@@ -153,7 +155,7 @@ date_default_timezone_set('America/Chihuahua');
         let preferenciasDocumento = datos.datos.xlsx;
         tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
     });
-</script>
+	</script>
 
 </body>
 </html>
