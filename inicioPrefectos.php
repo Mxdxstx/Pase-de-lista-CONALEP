@@ -88,7 +88,7 @@ date_default_timezone_set('America/Chihuahua');
 			<p class='title' style="text-align: center;"><?php echo date('Y-m-d H:i:s'); ?></p> 
         </div>	
     </main>
-	<script src="js/script.js"></script>
+	<script src="scripts/prefectos/barralateral.js"></script>
 
 </body>
 </html>
