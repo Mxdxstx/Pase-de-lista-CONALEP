@@ -36,7 +36,15 @@ date_default_timezone_set('America/Chihuahua');
 	<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
     <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
-
+	<script>
+        function validarFormulario() {
+            var fechaInput = document.getElementById("fecha");
+            if (fechaInput.value === "") {
+                alert("Por favor, selecciona una fecha.");
+                return false; // Evita que el formulario se envíe
+            }
+        }
+    </script>
 </head>
 
 <body id="body">
@@ -141,21 +149,7 @@ date_default_timezone_set('America/Chihuahua');
     </main>
 	
 	<script src="js/script.js"></script>
-	<script>
-    const $btnExportar = document.querySelector("#btnExportar"),
-        $tabla = document.querySelector("#datos");
-
-    $btnExportar.addEventListener("click", function() {
-        let tableExport = new TableExport($tabla, {
-            exportButtons: false, // No queremos botones
-            filename: "Reporte de prueba", //Nombre del archivo de Excel
-            sheetname: "Reporte de prueba", //Título de la hoja
-        });
-        let datos = tableExport.getExportData();
-        let preferenciasDocumento = datos.datos.xlsx;
-        tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
-    });
-	</script>
+	<script src="scripts/prefectos/excel.js"></script>
 
 </body>
 </html>
