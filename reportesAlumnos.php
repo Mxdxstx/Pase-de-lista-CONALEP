@@ -136,23 +136,7 @@ date_default_timezone_set('America/Chihuahua');
 				</table>
 			</div>					
     </main>
-	
-	<script src="js/script.js"></script>
-	<script>
-    const $btnExportar = document.querySelector("#btnExportar"),
-        $tabla = document.querySelector("#datos");
-
-    $btnExportar.addEventListener("click", function() {
-        let tableExport = new TableExport($tabla, {
-            exportButtons: false, // No queremos botones
-            filename: "Reporte de prueba", //Nombre del archivo de Excel
-            sheetname: "Reporte de prueba", //Título de la hoja
-        });
-        let datos = tableExport.getExportData();
-        let preferenciasDocumento = datos.datos.xlsx;
-        tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
-    });
-</script>
-
+	<script src="scripts/prefectos/barralateral.js"></script>
+	<script src="scripts/prefectos/excel.js"></script>
 </body>
 </html>
