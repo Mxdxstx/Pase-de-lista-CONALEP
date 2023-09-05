@@ -66,6 +66,7 @@ header{
   width:75%;
   margin-left:2%;
   padding: 10px;
+  overflow: auto;
 }
 
 .grid, .dropdowns{
@@ -150,3 +151,24 @@ td{
   .slider.round:before {
     border-radius: 50%;
   }
+
+
+
+  .table-container {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-container th, .table-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table-container th {
+    background-color: #f2f2f2;
+}
+
+.table-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

@@ -43,14 +43,14 @@ if (empty($_SESSION["id"])) {
                     <option value="">Seleccionar Grupo</option>
                     <?php
                     include("controladores/conexion.php");
-                    $sql = "SELECT id_grupo, nombre_grupo from grupos";
+                    $sql = "SELECT id_grupo, clave_grupo from grupos";
                     $resultado = $conexion->query($sql);
                     if ($resultado->num_rows > 0) {
                         while ($fila = $resultado->fetch_assoc()) {
-                            echo "<option value='" . $fila["id_grupo"] . "'>" . $fila["nombre_grupo"] . "</option>";
+                            echo "<option class='' value='" . $fila["id_grupo"] . "'>" . $fila["clave_grupo"] . "</option>";
                         }
                     } else {
-                        echo "<option value='0'>No se encontraron ciudades</option>";
+                        echo "<option value='0'>No se encontraron grupos</option>";
                     }
                     ?>
                 </select>
