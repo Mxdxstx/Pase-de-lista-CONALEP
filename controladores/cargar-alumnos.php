@@ -4,22 +4,26 @@
 include("conexion.php");
 
 $grupoSeleccionado = $_GET["grupo"];
+date_default_timezone_set('America/Chihuahua');
+$fechaHoraActual = date("Y-m-d");
 
-$sql = "SELECT matricula, primer_apellido, nombres, grupos.clave_grupo AS grupo
-        FROM alumnos
-        INNER JOIN grupos ON alumnos.id_grupo = grupos.id_grupo
-        WHERE grupos.id_grupo = '$grupoSeleccionado'
-        ORDER BY primer_apellido";
+$sql = "SELECT alumnos.matricula, primer_apellido, nombres, asistencias.fecha_hora AS fecha, grupos.clave_grupo AS grupo
+FROM alumnos
+INNER JOIN grupos ON alumnos.id_grupo = grupos.id_grupo
+INNER JOIN asistencias ON alumnos.matricula = asistencias.matricula
+WHERE grupos.id_grupo = '$grupoSeleccionado' AND asistencias.fecha_hora LIKE '%$fechaHoraActual%'
+ORDER BY primer_apellido";
 
 $resultado = $conexion->query($sql);
 
-if ($resultado->num_rows > 0) {
+if ($resultado->num_rows > 0) { 
     echo "<table class='table-container'>";
-    echo "<tr>
+    echo "<tr class='table_header'>
                 <td>Matricula</td>
                 <td>P. Apellido</td>
                 <td>Nombre(s)</td>
                 <td>Grupo</td>
+                <td>Fecha</td>
             </tr>";
     while ($fila = $resultado->fetch_assoc()) {
         
@@ -28,6 +32,7 @@ if ($resultado->num_rows > 0) {
         echo "<td>" . $fila["primer_apellido"] . "</td>";
         echo "<td>" . $fila["nombres"] . "</td>";
         echo "<td>" . $fila["grupo"] . "</td>";
+        echo "<td>" . $fila["fecha"] . "</td>";
         echo "</tr>";
     }
     echo "</table>";
