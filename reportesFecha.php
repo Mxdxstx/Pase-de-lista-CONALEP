@@ -15,6 +15,7 @@ if(!empty($_POST)){
 }
 
 $consulta = "SELECT asistencias.matricula, alumnos.primer_apellido, alumnos.segundo_apellido, alumnos.nombres, fecha_hora FROM asistencias INNER JOIN alumnos ON asistencias.matricula = alumnos.matricula $where";
+
 $guardar = $conexion->query($consulta);
 date_default_timezone_set('America/Chihuahua');
 
@@ -108,21 +109,19 @@ date_default_timezone_set('America/Chihuahua');
         </div>
 
         </div>
-
     <main>
 		<h3 class="text-center">
 			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 					<label for="fecha">Selecciona una fecha:</label>
 					<input type="date" id="fecha" name="fecha">
-					<button type="submit">Buscar</button>
+					<button type="submit" onclick="validarFormulario()">Buscar</button>
 					<button id="btnExportar" class="btn btn-success">
 					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
 					</button>
-					<button type="button" onclick="limpiar()">Limpiar</button>
+					<button type="button" onclick="limpiarFormulario()">Limpiar</button>
 
 			</form>
 		</h3>
-
 			<div style="overflow: auto; width: 1120px; height: 600px">
 				<table id="datos">
 					<thead class="text-muted">
@@ -131,7 +130,6 @@ date_default_timezone_set('America/Chihuahua');
 						<th class="text-center">Primer Apellido</th>
 						<th class="text-center">Segundo Apellido</th>
 						<th class="text-center">Fecha y Hora de Ingreso</th>
-
 				</thead>
 					<tbody>
 						<?php while($row = $guardar->fetch_assoc()){?>
@@ -146,10 +144,8 @@ date_default_timezone_set('America/Chihuahua');
 					</tbody>
 				</table>
 			</div>					
-    </main>
-	
+    </main>	
 	<script src="js/script.js"></script>
 	<script src="scripts/prefectos/excel.js"></script>
-
 </body>
 </html>
