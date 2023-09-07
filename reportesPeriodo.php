@@ -6,10 +6,15 @@ if(empty($_SESSION["id"])) {
 include 'controladores/conexion.php';
 
 $where ="";
+
 if(!empty($_POST)){
-	$valor = $_POST['buscar'];
-	if(!empty($valor)){
-		$where = "WHERE alumnos.matricula LIKE '%$valor%'";
+	$valor = trim($_POST['fecha']);
+	$valorD = trim($_POST['fechaD']);
+
+	if(!empty($valor) && !empty($valorD)){
+		$fechaInicio = $valor . ' 00:00:00';
+		$fechaFin = $valorD . ' 23:59:59';
+		$where = "WHERE asistencias.fecha_hora BETWEEN '$fechaInicio' AND '$fechaFin'";
 	}
 }
 
@@ -32,6 +37,18 @@ date_default_timezone_set('America/Chihuahua');
     <link rel="stylesheet" href="css/estilosReportes.css">
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+	<script>
+        function validarFormulario() {
+            var fechaInput = document.getElementById("fecha");
+            var fechaFinInput = document.getElementById("fechaD");
+
+            if (fechaInput.value === "" || fechaFinInput.value === "") {
+            alert("Falta Una Fecha Por Seleccionar");
+                return false; // Evita que el formulario se envíe
+            }
+        }
+    </script>
+	
 </head>
 
 <body id="body">
@@ -99,10 +116,16 @@ date_default_timezone_set('America/Chihuahua');
     <main>
         <h3 class="text-center">
 			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-				Buscar nombre de Alumno 
-				<input type="text" name="buscar" class="form_control" placeholder="" />
-				<input type="submit" name="buscador" value="Buscar" class="btn-block btn-sm btn-success">
-				<input type="image" name="Imprimir" onclick="javascript:window.print()" value="Imprimir" src="img/Img_Prefectos/imprimir.png">		
+					<label for="fecha">Fecha Inicio:</label>
+					<input type="date" id="fecha" name="fecha">
+					<label for="fecha">Fecha Fin:</label>
+					<input type="date" id="fechaD" name="fechaD">
+					<button type="submit" onclick="validarFormulario()">Buscar</button>
+					<button id="btnExportar" class="btn btn-success">
+					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
+					</button>
+					<button type="button" onclick="Limpiar()">Limpiar</button>
+
 			</form>
 		</h3>
 			<div style="overflow: auto; width: 1120px; height: 600px">
@@ -131,6 +154,7 @@ date_default_timezone_set('America/Chihuahua');
 				</div>					
     </main>
 	<script src="js/script.js"></script>
+	<script src="scripts/prefectos/excel.js"></script>
 
 </body>
 </html>
