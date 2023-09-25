@@ -27,7 +27,7 @@ if (empty($_SESSION["id"])) {
 
         </div>
         <div class="title_text">
-            <h1>Docentes y Orientación</h1><br> 
+            <h1>Docentes y Orientación</h1><br>
             <h2>Asistencia</h2>
         </div>
         <div class="salir">
@@ -70,36 +70,36 @@ if (empty($_SESSION["id"])) {
                 <script>
                     //TODO: cambiarlo a un script externo
                     function cargarAlumnos() {
-    var selectedGrupo = document.getElementById("grupo").value;
+                        var selectedGrupo = document.getElementById("grupo").value;
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("tablaAlumnos").innerHTML = this.responseText;
-        }
-    };
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("tablaAlumnos").innerHTML = this.responseText;
+                            }
+                        };
 
-    // Llamada inicial para cargar todos los alumnos al cargar la página
-    xhttp.open("GET", "controladores/cargar-alumnos.php?grupo=" + selectedGrupo, true);
-    xhttp.send();
+                        // Llamada inicial para cargar todos los alumnos al cargar la página
+                        xhttp.open("GET", "controladores/cargar-alumnos.php?grupo=" + selectedGrupo, true);
+                        xhttp.send();
 
-    const checkbox = document.getElementById('asistieron');
+                        const checkbox = document.getElementById('asistieron');
 
-    checkbox.addEventListener('change', function() {
-        // Verifica si el checkbox está marcado (activado)
-        if (this.checked) {
-            console.log('Checkbox activado: Mostrar solo los que no asistieron');
-            // Llamada para cargar solo los alumnos que no asistieron
-            xhttp.open("GET", "controladores/cargar-alumnos-ausentes.php?grupo=" + selectedGrupo, true);
-            xhttp.send();
-        } else {
-            console.log('Checkbox desactivado: No aplicar filtro');
-            // Llamada para cargar todos los alumnos nuevamente
-            xhttp.open("GET", "controladores/cargar-alumnos.php?grupo=" + selectedGrupo, true);
-            xhttp.send();
-        }
-    });
-}
+                        checkbox.addEventListener('change', function() {
+                            // Verifica si el checkbox está marcado (activado)
+                            if (this.checked) {
+                                console.log('Checkbox activado: Mostrar solo los que no asistieron');
+                                // Llamada para cargar solo los alumnos que no asistieron
+                                xhttp.open("GET", "controladores/cargar-alumnos-ausentes.php?grupo=" + selectedGrupo, true);
+                                xhttp.send();
+                            } else {
+                                console.log('Checkbox desactivado: No aplicar filtro');
+                                // Llamada para cargar todos los alumnos nuevamente
+                                xhttp.open("GET", "controladores/cargar-alumnos.php?grupo=" + selectedGrupo, true);
+                                xhttp.send();
+                            }
+                        });
+                    }
                 </script>
             </div>
         </div>
