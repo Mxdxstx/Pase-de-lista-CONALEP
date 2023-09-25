@@ -53,7 +53,7 @@ date_default_timezone_set('America/Chihuahua');
             </a>
             <a href="prefectos.php" class="selected">
                 <div class="option">
-                <i class="fa-solid fa-check" title="Reporte Por Alumno"></i>
+                <i class="fa-solid fa-check" title="Pase De Lista"></i>
 					<h4>Pase De Lista</h4>
                 </div>
             </a>    
