@@ -35,7 +35,15 @@ date_default_timezone_set('America/Chihuahua');
 	<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
     <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
-
+	<script>
+        function validarFormulario() {
+            var fechaInput = document.getElementById("buscar");
+            if (fechaInput.value === "") {
+                alert("Por favor, selecciona una matricula.");
+                return false; // Evita que el formulario se envíe
+            }
+        }
+    </script>
 </head>
 
 <body id="body">
@@ -68,7 +76,7 @@ date_default_timezone_set('America/Chihuahua');
                 <i class="fa-solid fa-check" title="Reporte Por Alumno"></i>
 					<h4>Pase De Lista</h4>
                 </div>
-            </a>    
+            </a> 			
             <a href="reportesAlumnos.php" class="selected">
                 <div class="option">
 					<i class="fa-solid fa-user" title="Reporte Por Alumno"></i>
@@ -105,7 +113,7 @@ date_default_timezone_set('America/Chihuahua');
 			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 				Buscar Matricula de Alumno 
 				<input type="text" name="buscar" class="form_control" placeholder="" />
-				<input type="submit" name="buscador" value="Buscar" class="btn-block btn-sm btn-success">
+				<input type="submit" name="buscador" value="Buscar" class="btn-block btn-sm btn-success" onclick="validarFormulario()">
 				<input type="submit" name="limpiar" value="Limpiar Consulta" class="btn-block btn-sm btn-success">
 				<button id="btnExportar" class="btn btn-success">
 					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
@@ -120,8 +128,7 @@ date_default_timezone_set('America/Chihuahua');
 						<th class="text-center">Primer Apellido</th>
 						<th class="text-center">Segundo Apellido</th>
 						<th class="text-center">Fecha y Hora de Ingreso</th>
-
-				</thead>
+					</thead>
 					<tbody>
 						<?php while($row = $guardar->fetch_assoc()){?>
 							<tr>

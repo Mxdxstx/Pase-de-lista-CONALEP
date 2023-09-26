@@ -39,8 +39,7 @@ date_default_timezone_set('America/Chihuahua');
     <div class="menu__side" id="menu_side">
 
         <div class="name__page">
-            <img src="img/Img_Prefectos/logo.png" width="35">
-			
+            <img src="img/Img_Prefectos/logo.png" width="35">		
         </div>
 		
         <div class="options__menu">	
@@ -89,24 +88,24 @@ date_default_timezone_set('America/Chihuahua');
 
 	<div class="main">
 		<form class="tabla" action="prefectos.php" method="post">
-			<input type="text" placeholder="Matricula" name="matricula" />
+			<textarea placeholder="Matricula" name="matricula" id="resultado"></textarea>
 			<button type="submit" name="btnEnviar">Enviar</button>
-
 		</form>
+		<p id="resultado"></p>
+		<div id="contenedor"></div>
+		<!-- Cargamos Quagga y luego nuestro script -->
+		<script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js"></script>
+		<script src="scripts/prefectos/script.js"></script>
 		<?php
 		if(isset($_POST['btnEnviar'])){
 		include("controladores/registrar-asistencia.php");}
 		?>
-
 		<table cellspacing="0" class="tabla">
 			<?php
 			include("controladores/cargar-asistencias.php");
 			?>
 		</table>
-
 	</div>
-
-
+	<script src="scripts/prefectos/barralateral.js"></script>
 </body>
-
 </html>
