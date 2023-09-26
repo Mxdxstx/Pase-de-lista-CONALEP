@@ -48,7 +48,11 @@ date_default_timezone_set('America/Chihuahua');
             }
         }
     </script>
-	
+	<script>
+        function refrescarPagina() {
+            location.reload(); // Esta línea recarga la página actual
+        }
+    </script>
 </head>
 
 <body id="body">
@@ -124,7 +128,7 @@ date_default_timezone_set('America/Chihuahua');
 					<button id="btnExportar" class="btn btn-success">
 					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
 					</button>
-					<button type="button" onclick="Limpiar()">Limpiar</button>
+					<button type="button" onclick="refrescarPagina()">Limpiar</button>
 
 			</form>
 		</h3>
@@ -153,8 +157,7 @@ date_default_timezone_set('America/Chihuahua');
 				</table>
 				</div>					
     </main>
-	<script src="js/script.js"></script>
+	<script src="scripts/prefectos/barralateral.js"></script>
 	<script src="scripts/prefectos/excel.js"></script>
-
 </body>
 </html>
