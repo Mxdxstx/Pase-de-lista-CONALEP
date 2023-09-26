@@ -19,7 +19,7 @@ ORDER BY primer_apellido;";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) { 
-    echo "<table class='table-container'>";
+    echo "<table class='table-container-bad'>";
     echo "<tr class='table_header'>
                 <td>Matricula</td>
                 <td>P. Apellido</td>

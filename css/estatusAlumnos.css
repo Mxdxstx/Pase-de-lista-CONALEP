@@ -1,0 +1,15 @@
+.alumnos{
+    background: white;
+    width: 50%;
+    margin:auto;
+    height: 500px;
+}
+.estatus{
+    border-collapse:collapse;
+}
+.estatus td{
+    background: pink;
+    max-width: 10%;
+    min-width: 10%;
+    font-size: 12px;
+}
