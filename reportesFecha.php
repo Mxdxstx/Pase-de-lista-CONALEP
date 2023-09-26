@@ -78,7 +78,7 @@ date_default_timezone_set('America/Chihuahua');
                 <i class="fa-solid fa-check" title="Pase De Lista"></i>
 					<h4>Pase De Lista</h4>
                 </div>
-            </a>        
+            </a>		
             <a href="reportesAlumnos.php" >
                 <div class="option">
 					<i class="fa-solid fa-user" title="Reporte Por Alumno"></i>
@@ -145,7 +145,7 @@ date_default_timezone_set('America/Chihuahua');
 				</table>
 			</div>					
     </main>	
-	<script src="js/script.js"></script>
-	<script src="scripts/prefectos/excel.js"></script>
+	<script src="scripts/prefectos/barralateral.js"></script>
+	<script src="scripts/prefectos/excel.js"></script>	
 </body>
-</html>
+</html
