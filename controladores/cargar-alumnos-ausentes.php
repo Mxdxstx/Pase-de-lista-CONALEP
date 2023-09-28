@@ -19,7 +19,7 @@ ORDER BY primer_apellido;";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) { 
-    echo "<table class='table-container-bad'>";
+    echo "<table class='table-container'>";
     echo "<tr class='table_header'>
                 <td>Matricula</td>
                 <td>P. Apellido</td>
@@ -29,7 +29,7 @@ if ($resultado->num_rows > 0) {
             </tr>";
     while ($fila = $resultado->fetch_assoc()) {
         
-        echo "<tr>";
+        echo "<tr class = 'ausentes'>";
         echo "<td>" . $fila["matricula"] . "</td>";
         echo "<td>" . $fila["primer_apellido"] . "</td>";
         echo "<td>" . $fila["nombres"] . "</td>";
