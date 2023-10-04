@@ -3,7 +3,7 @@ include("conexion.php");
     if(isset($_POST['btnEnviar'])){
         if (!empty($_POST["matricula"])) {
             date_default_timezone_set('America/Chihuahua');
-            $matricula = $_POST["matricula"];
+            $matricula = trim($_POST["matricula"]);
             $fechaHoraActual = date("Y-m-d H:i:s");
             
             $sql_verificar = "SELECT matricula FROM alumnos WHERE matricula = '$matricula'";
