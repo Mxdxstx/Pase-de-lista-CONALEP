@@ -13,6 +13,7 @@ if (empty($_SESSION["id"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="scripts/docentes/EstatusEstilosDinamicos.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estatus Alumno</title>
 </head>
@@ -35,7 +36,7 @@ if (empty($_SESSION["id"])) {
 
     <div class="alumnos">
         <table class="estatus">
-            <tr>
+            <tr class='table_header'>
                 <td>Matricula</td>
                 <td>Nombre</td>
                 <td>Grupo</td>
@@ -46,8 +47,16 @@ if (empty($_SESSION["id"])) {
                 <td>160260192-2</td>
                 <td>Modesto Angel</td>
                 <td>101-i</td>
-                <td>Buen desempeño!</td>
-                <td>Ha entregado todas las tareas.</td>
+                <td><select id="miSelect" class="miSelect">
+                        <option class='estatus_regular'>Sin observaciones</option>
+                        <option class='estatus_regular'>Rendimiento promedio</option>
+                        <option class='estatus_bueno'>¡Entrega todas las tareas!</option>
+                        <option class='estatus_malo'>No entrega tareas</option>
+                        <option class='estatus_malo'>Corajudo</option>
+                    </select>
+                    
+                </td>
+                <td>Sin comentarios.</td>
             </tr>
         </table>
     </div>
