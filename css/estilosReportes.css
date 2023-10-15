@@ -77,8 +77,11 @@ header{
     display: flex;
     align-items: center;
     margin-top: 10px;
+    position: relative;
 }
-
+.name__page p {
+    padding-left: 3px;
+}
 .options__menu{
     padding: 20px 30px;
     position: absolute;
