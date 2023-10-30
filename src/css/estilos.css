@@ -1,0 +1,36 @@
+*{
+	font-family: 'Inter', sans-serif;
+}
+.ok {
+	text-align: center;
+    background: #1e6;
+    border:2px solid rgb(11, 158, 68);
+    color:rgb(5, 88, 37) ;
+    font-weight: bold;
+    padding: 10px;
+    width: 50%;
+    margin:auto;
+	border-radius: 5px;
+}
+.alert{
+	text-align: center;
+    background: #ffed9b;
+    border:2px solid #f8e073;
+    color:#615628 ;
+    font-weight: bold;
+    padding: 10px;
+    width: 50%;
+    margin:auto;
+	border-radius: 5px;
+}
+.bad{
+	text-align: center;
+    background: #ff9b9b;
+    border:2px solid #f87373;
+    color:#a84b4b ;
+    font-weight: bold;
+    padding: 10px;
+    width: 50%;
+    margin:auto;
+	border-radius: 5px;
+}

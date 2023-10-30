@@ -1,10 +1,10 @@
-<link rel="stylesheet" href="css/docentes.css">
-<link rel="stylesheet" href="css/estilos.css">
-<link rel="stylesheet" href="css/estatusAlumnos.css">
+<link rel="stylesheet" href="../css/docentes.css">
+<link rel="stylesheet" href="../css/estilos.css">
+<link rel="stylesheet" href="../css/estatusAlumnos.css">
 <?php
 session_start();
 if (empty($_SESSION["id"])) {
-    header("location: index.php");
+    header("location: login.php");
 }
 
 ?>
@@ -13,14 +13,14 @@ if (empty($_SESSION["id"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="scripts/docentes/EstatusEstilosDinamicos.js"></script>
+    <script src="../scripts/docentes/EstatusEstilosDinamicos.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estatus Alumno</title>
 </head>
 <body>
 <header>
         <div class="img">
-            <img src="img/LogoConalepJuarezI.png" alt="Logo plantel conalep Juarez I" />
+            <img src="../../public/assets/img/Img_Prefectos/logo.png" alt="Logo plantel conalep Juarez I" />
         </div>
         <div class="date_time">
 
@@ -30,7 +30,7 @@ if (empty($_SESSION["id"])) {
             <h2>Estatus Alumnos</h2>
         </div>
         <div class="salir">
-            <a href="controladores/controlador-cerrar-sesion.php" class="btn_salir">Cerrar sesión</a>
+            <a href="../controllers/controlador-cerrar-sesion.php" class="btn_salir">Cerrar sesión</a>
         </div>
     </header>
 

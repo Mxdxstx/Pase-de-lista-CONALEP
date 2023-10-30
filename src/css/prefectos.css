@@ -1,0 +1,46 @@
+body{
+    background: lightgray;
+}
+.title_text{
+    flex:1;
+    margin-left: 10%;
+    color: rgb(0, 126, 103);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+.salir{
+    margin-top:25px;
+    float: right;
+    text-align: center;
+}
+.btn_salir{
+    background-color: rgb(0, 126, 103);
+    color:white;
+    padding:20px 40px 20px 40px;
+    text-decoration: none;
+    border-radius: 5px;  
+}
+
+.main{
+    width: 85%;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+    overflow: auto;
+    height: 75vh;
+}
+.tabla{
+    padding: 20px;
+    margin: auto;
+}
+td{
+    border:1px solid black;
+    padding: 5px;
+    text-align: center;
+    min-width:150px;
+    word-spacing: 5px;
+}
+.encabezados{
+    background: rgb(0,126, 103);
+    color:white;
+}
