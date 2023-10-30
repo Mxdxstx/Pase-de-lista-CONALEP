@@ -9,8 +9,11 @@
 </head>
 <body>
     <div class="login-container">
-    <header>
-            <img src="../../public/assets/img/LogoConalepJuarezI.png" alt="Logo plantel conalep Juarez I"/>
+        <header>
+            <div>
+                <p>Versión beta</p>
+                <img src="../../public/assets/img/LogoConalepJuarezI.png" alt="Logo plantel conalep Juarez I"/>
+            </div>
         </header>
         <form method="post" action="">
        
