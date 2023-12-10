@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +24,7 @@
             <?php
             include("../controllers/conexion.php");
             include("../controllers/controlador-login.php");
-            ?>
+?>
             <div class="inputs">
                 <div><input class="txt" type="text" name="usuario" placeholder="Nombre de usuario"></div>
                 <div><input class="txt" type="password" name="password" placeholder="Contraseña"></div>

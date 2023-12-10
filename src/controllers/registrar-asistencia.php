@@ -6,10 +6,12 @@ include("conexion.php");
             $matricula = trim($_POST["matricula"]);
             $fechaHoraActual = date("Y-m-d H:i:s");
             
-            $sql_verificar = "SELECT matricula FROM alumnos WHERE matricula = '$matricula'";
+            $sql_verificar = "SELECT matricula FROM alumnos 
+            WHERE matricula = '$matricula'";
             $resultado_verificar = $conexion->query($sql_verificar);
 
-            $sql="INSERT INTO asistencias(matricula,fecha_hora) VALUES ('$matricula', '$fechaHoraActual')";
+            $sql="INSERT INTO asistencias(matricula,fecha_hora) 
+            VALUES ('$matricula', '$fechaHoraActual')";
 
         if ($resultado_verificar->num_rows > 0) {
             if ($conexion->query($sql) === TRUE) {

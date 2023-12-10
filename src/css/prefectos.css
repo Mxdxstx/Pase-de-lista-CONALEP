@@ -44,3 +44,7 @@ td{
     background: rgb(0,126, 103);
     color:white;
 }
+#contenedor{
+    max-height: 100px;
+    border: 1px solid black;
+}
