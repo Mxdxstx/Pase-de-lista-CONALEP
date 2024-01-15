@@ -16,16 +16,11 @@ date_default_timezone_set('America/Chihuahua');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pase de Lista</title>
-
-    <link rel="stylesheet" href="../css/estilos.css">
-	<link rel="stylesheet" href="../css/reportes.css">
-    <link rel="stylesheet" href="../css/estilosReportes.css">
-    <link rel="stylesheet" href="../css/prefectos.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/estiloPaseLista.css">
 </head>
 
 <body id="body">
-
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -33,20 +28,14 @@ date_default_timezone_set('America/Chihuahua');
 		<div class="hora">
 			<p class='title'><?php echo date('Y-m-d H:i:s'); ?></p> 
         </div>
-		<div class="title_text">
-			<h1>Pase de Lista</h1>
-		</div>
     </header>
 
     <div class="menu__side" id="menu_side">
-
         <div class="name__page">
             <img src="../../public/assets/img/Img_Prefectos/logo.png" width="35">
             <p>Conalep Juárez 1</p>
         </div>
-		
         <div class="options__menu">	
-			
 			<a href="inicioPrefectos.php">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
@@ -65,14 +54,12 @@ date_default_timezone_set('America/Chihuahua');
 					<h4>Reportes Por Alumno</h4>
                 </div>
             </a>
-			
 			<a href="reportesFecha.php" >
                 <div class="option">
 					<i class="fa-solid fa-calendar-days" title="Reporte Por Fecbas"></i>
 					<h4>Reportes Por Fechas</h4>
                 </div>
             </a>
-			
 			<a href="reportesPeriodo.php" >
                 <div class="option">
 					<i class="fa-solid fa-chart-simple" title="Reporte Por Periodo"></i>
@@ -87,13 +74,11 @@ date_default_timezone_set('America/Chihuahua');
                 </div>
             </a>
         </div>
-
         </div>
-
-    <main class = "main">
+        <main class = "main">
 		<form class="tabla" action="prefectos.php" method="post">
-			<div>
-				<textarea placeholder="Matricula" name="matricula" id="resultado"></textarea>					
+            <div id="contenedor-formulario">
+				<textarea placeholder="Matricula" name="matricula" id="resultado"></textarea><br>			
 				<button type="submit" name="btnEnviar" class="btnEnviar">Enviar</button>
 			</div>
 		</form>
@@ -116,7 +101,6 @@ date_default_timezone_set('America/Chihuahua');
     <script>
         document.getElementById('resultado').addEventListener('input', function() {
             var matricula = document.getElementById('resultado').value;
-
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '../controllers/registrar-asistencia.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -135,4 +119,3 @@ date_default_timezone_set('America/Chihuahua');
     </script>
 </body>
 </html>
-
