@@ -1,4 +1,7 @@
-
+<?php
+            include("../controllers/conexion.php");
+            include("../controllers/controlador-login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,10 +24,7 @@
             <h1>¡Bienvendido!</h1>
             
             <h2>Inicio de sesión</h2>
-            <?php
-            include("../controllers/conexion.php");
-            include("../controllers/controlador-login.php");
-?>
+            
             <div class="inputs">
                 <div><input class="txt" type="text" name="usuario" placeholder="Nombre de usuario"></div>
                 <div><input class="txt" type="password" name="password" placeholder="Contraseña"></div>
