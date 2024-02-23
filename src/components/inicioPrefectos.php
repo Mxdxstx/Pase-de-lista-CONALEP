@@ -56,7 +56,7 @@ date_default_timezone_set('America/Chihuahua');
             </a>    
             <a href="visitas.php" >
                 <div class="option">
-                <i class="fa-solid fa-book" ></i>
+                <i class="fa-solid fa-book" title="Registro De Visitas"></i>
 					<h4>Registro De Visitas</h4>
                 </div>
             </a>    
