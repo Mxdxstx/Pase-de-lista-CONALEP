@@ -38,7 +38,7 @@ if ($resultado->num_rows > 0) {
         echo "</tr>";
     }
 }else{
-    echo "<p>No se encontraron registros</p>";
+    echo "<p style='text-align: center;'>No se encontraron registros</p>";
 }
 
 $conexion->close();

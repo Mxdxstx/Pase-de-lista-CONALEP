@@ -7,7 +7,8 @@ $grupoSeleccionado = $_GET["grupo"];
 date_default_timezone_set('America/Chihuahua');
 $fechaHoraActual = date("Y-m-d");
 
-$sql = "SELECT alumnos.matricula, primer_apellido, nombres, asistencias.fecha_hora AS fecha, grupos.clave_grupo AS grupo
+$sql = "SELECT alumnos.matricula, primer_apellido, nombres, asistencias.fecha_hora 
+AS fecha, grupos.clave_grupo AS grupo
 FROM alumnos
 INNER JOIN grupos ON alumnos.id_grupo = grupos.id_grupo
 LEFT JOIN asistencias ON alumnos.matricula = asistencias.matricula

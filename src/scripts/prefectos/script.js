@@ -3,15 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	Quagga.init({
 		inputStream: {
 			constraints: {
-				width: 720,
-				height: 340,
+				width: 800,
+				height: 600,
 			},
 			name: "Live",
 			type: "LiveStream",
 			target: document.querySelector('#contenedor'), // Pasar el elemento del DOM
 		},
 		decoder: {
-			readers: ["ean_reader"]
+			readers: ["ean_reader", "code_128_reader"]
 		}
 	}, function (err) {
 		if (err) {
