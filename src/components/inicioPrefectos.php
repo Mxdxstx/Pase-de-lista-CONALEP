@@ -16,8 +16,8 @@ date_default_timezone_set('America/Chihuahua');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Prefectos</title>
 
+    <link rel="stylesheet" href="../css/inicioPrefectos.css">
     <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="stylesheet" href="../css/reportes.css">
     <link rel="stylesheet" href="../css/estilosReportes.css">
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
@@ -29,6 +29,8 @@ date_default_timezone_set('America/Chihuahua');
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
+        
+        <div class="main_text"><h1>Prefectura</h1></div>
     </header>
 
     <div class="menu__side" id="menu_side">
@@ -82,14 +84,16 @@ date_default_timezone_set('America/Chihuahua');
         </div>
     </div>
 
-    <main>
-		<h1 style="text-align: center;">Bienvenido(a)</h1>
+    <div class="main">
+        <br>
+		<h2>Bienvenido(a)</h2><br>
 		<div class="hora">
-			<p class="title" style="text-align: center;">La Hora Actual es:</p>
-			<p class='title' style="text-align: center;"><?php echo date('Y-m-d H:i:s'); ?></p> 
-        </div>	
-    </main>
+            <p class="hour_text">La hora actual es:</p>
+            <p class='current_hour' id="horaActual"></p>
+        </div>
+    </div>
 	<script src="../scripts/prefectos/barralateral.js"></script>
+    <script src="../scripts/prefectos/horaActual.js"></script>
 
 </body>
 </html>

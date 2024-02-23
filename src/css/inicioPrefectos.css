@@ -1,0 +1,19 @@
+h2,p{
+    text-align: center;
+}
+body{
+    background: #f5f5f5;
+}
+.main_text{
+    
+    margin-left: 20px;
+}
+.main{
+    font-size: 200%;
+}
+
+.current_hour{
+    color: rgb(0,126, 103);
+    font-weight: 500;
+    text-shadow: 1px 1px 1px black;
+}
