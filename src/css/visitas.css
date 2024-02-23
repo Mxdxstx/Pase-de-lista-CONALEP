@@ -1,0 +1,23 @@
+body{
+    background: #f5f5f5;
+}
+.tabla{
+    padding: 20px;
+    margin: auto;
+}
+td, th{
+	border-collapse: collapse;
+	min-width:150px;
+	max-width:150px;
+	border: 1px solid black;
+    min-width: 250px;
+    padding: 10px;
+}
+.main{
+    width: 60%;
+    margin: auto;
+}
+.encabezados{
+    background: rgb(0,126, 103);
+    color:white;
+}
