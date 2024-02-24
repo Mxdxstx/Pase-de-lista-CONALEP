@@ -13,9 +13,8 @@
     <title>Registro de visitas</title>
 </head>
 <body>
-<header>
-
-
+    
+    <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>

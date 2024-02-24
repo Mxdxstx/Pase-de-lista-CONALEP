@@ -47,7 +47,13 @@ date_default_timezone_set('America/Chihuahua');
                 <i class="fa-solid fa-check" title="Reporte Por Alumno"></i>
 					<h4>Pase De Lista</h4>
                 </div>
-            </a> 			
+            </a>
+            <a href="visitas.php" >
+                <div class="option">
+                <i class="fa-solid fa-book" title="Registro De Visitas"></i>
+					<h4>Registro De Visitas</h4>
+                </div>
+            </a>     	 			
             <a href="reportesAlumnos.php">
                 <div class="option">
 					<i class="fa-solid fa-user" title="Reporte Por Alumno"></i>
