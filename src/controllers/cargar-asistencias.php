@@ -21,13 +21,13 @@ $sql = "SELECT
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {
-    echo "<th class='encabezados'>
+    echo "<tr class='encabezados'>
             <td>Matrícula</td>
             <td>Apellido(s)</td>
             <td>Nombre(s)</td>
             <td>Grupo</td>
             <td>Fecha y Hora</td>
-          </th>";
+          </tr>";
     while ($fila = $resultado->fetch_assoc()) {
         echo "<tr>";
             echo "<td>" . $fila["matricula"] . "</td>";

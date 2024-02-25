@@ -6,6 +6,7 @@ if(empty($_SESSION["id"])) {
 include '../controllers/conexion.php';
 date_default_timezone_set('America/Chihuahua');
 
+$fecha = date("d-m-Y");
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,10 @@ date_default_timezone_set('America/Chihuahua');
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
         
-        <div class="main_text"><h1>Prefectura</h1></div>
+        <div class="main_title"><h1>Prefectura</h1></div>
+        <div class="date"> 
+            <h2> Hoy estamos a: <?php echo $fecha ?></h2>
+        </div>
     </header>
 
     <div class="menu__side" id="menu_side">
