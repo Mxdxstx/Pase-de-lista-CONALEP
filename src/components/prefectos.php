@@ -18,6 +18,7 @@ date_default_timezone_set('America/Chihuahua');
     <title>Pase de Lista</title>
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/estiloPaseLista.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body id="body">

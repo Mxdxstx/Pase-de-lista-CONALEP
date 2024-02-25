@@ -15,7 +15,7 @@ include("conexion.php");
 
         if ($resultado_verificar->num_rows > 0) {
             if ($conexion->query($sql) === TRUE) {
-                echo "<p class='ok'>¡Registro exitoso!</p>";
+                echo "<p class='ok'>¡Registro exitoso!</p><br/>";
             } else {
                 echo "<p class='bad'>Error al insertar el registro: " . $conexion->error."</p>";
             }
