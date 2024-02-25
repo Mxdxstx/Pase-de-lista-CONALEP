@@ -33,7 +33,7 @@ $fecha = date("d-m-Y");
         
         <div class="main_title"><h1>Prefectura</h1></div>
         <div class="date"> 
-            <h2> Hoy estamos a: <?php echo $fecha ?></h2>
+            <h2> Fecha: <?php echo $fecha ?></h2>
         </div>
     </header>
 

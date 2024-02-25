@@ -27,8 +27,11 @@ date_default_timezone_set('America/Chihuahua');
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
-		<div class="hora">
-			<p class='title'><?php echo date('Y-m-d H:i:s'); ?></p> 
+        <div class="main_title">
+            <h2>Pase De Lista</h2>
+        </div>
+		<div class="date">
+			<h2 class='title'><?php echo date('Y-m-d'); ?></h2> 
         </div>
     </header>
 

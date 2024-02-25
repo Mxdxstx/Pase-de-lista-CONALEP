@@ -6,6 +6,8 @@ body{
 }
 .main_title{
     flex: 1;
+    
+    text-shadow: 1px 1px 1px gray;
     margin-left: 20px;
 }
 .main{
