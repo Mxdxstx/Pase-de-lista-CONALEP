@@ -4,17 +4,14 @@
 	font-family: 'Inter', sans-serif;
 }
 body {
-  background-image: url(https://i.imgur.com/PAfUC3l.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
+  background-image: url("../../public/assets/img/conalep2024.jpg");
+  background-position: right 50%;
+  background-size: 51%;
 }
 .login-container{
 	background-color: #ffffff;
 	height: 100vh;
 	width: 50vw;
-	
 }
 form {
 	padding: 20px;
@@ -50,6 +47,7 @@ h2{
 }
 .btn:hover{
 	cursor:pointer;
+	background-color: rgb(2, 82, 67);
 }
 .txt{
 	border-radius: 10px;

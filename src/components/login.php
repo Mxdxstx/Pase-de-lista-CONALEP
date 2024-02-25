@@ -21,7 +21,7 @@
         </header>
         <form method="post" action="">
        
-            <h1>¡Bienvendido!</h1>
+            <h1>¡Bienvendido(a)!</h1>
             
             <h2>Inicio de sesión</h2>
             

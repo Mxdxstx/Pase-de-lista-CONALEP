@@ -22,19 +22,19 @@ $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {
     echo "<tr class='encabezados'>
-    <td>Matrícula</td>
-    <td>Apellido(s)</td>
-    <td>Nombre(s)</td>
-    <td>Grupo</td>
-    <td>Fecha y Hora</td>
-    </tr>";
+            <td>Matrícula</td>
+            <td>Apellido(s)</td>
+            <td>Nombre(s)</td>
+            <td>Grupo</td>
+            <td>Fecha y Hora</td>
+          </tr>";
     while ($fila = $resultado->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $fila["matricula"] . "</td>";
-        echo "<td>" . $fila["p_apellido"]."     ".$fila["s_apellido"] . "</td>";
-        echo "<td>" . $fila["nombres"] . "</td>";
-        echo "<td>" . $fila["grupo"] . "</td>";
-        echo "<td>" . $fila["fecha_hora"] . "</td>";
+            echo "<td>" . $fila["matricula"] . "</td>";
+            echo "<td>" . $fila["p_apellido"]."     ".$fila["s_apellido"] . "</td>";
+            echo "<td>" . $fila["nombres"] . "</td>";
+            echo "<td>" . $fila["grupo"] . "</td>";
+            echo "<td>" . $fila["fecha_hora"] . "</td>";
         echo "</tr>";
     }
 }else{

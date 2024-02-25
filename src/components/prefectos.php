@@ -18,6 +18,8 @@ date_default_timezone_set('America/Chihuahua');
     <title>Pase de Lista</title>
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/estiloPaseLista.css">
+    <link rel="stylesheet" href="../css/prefectos.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body id="body">
@@ -25,8 +27,11 @@ date_default_timezone_set('America/Chihuahua');
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
-		<div class="hora">
-			<p class='title'><?php echo date('Y-m-d H:i:s'); ?></p> 
+        <div class="main_title">
+            <h2>Pase De Lista</h2>
+        </div>
+		<div class="date">
+			<h2 class='title'><?php echo date('Y-m-d'); ?></h2> 
         </div>
     </header>
 
@@ -47,7 +52,13 @@ date_default_timezone_set('America/Chihuahua');
                 <i class="fa-solid fa-check" title="Reporte Por Alumno"></i>
 					<h4>Pase De Lista</h4>
                 </div>
-            </a> 			
+            </a>
+            <a href="visitas.php" >
+                <div class="option">
+                <i class="fa-solid fa-book" title="Registro De Visitas"></i>
+					<h4>Registro De Visitas</h4>
+                </div>
+            </a>     	 			
             <a href="reportesAlumnos.php">
                 <div class="option">
 					<i class="fa-solid fa-user" title="Reporte Por Alumno"></i>

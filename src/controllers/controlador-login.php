@@ -16,7 +16,7 @@ if(!empty($_POST['btningresar'])){
             header("location: docentes.php");
         }
         if($datos->id_rol == 2){
-            header("location: prefectos.php");
+            header("location: inicioPrefectos.php");
         }
           
        }else{
