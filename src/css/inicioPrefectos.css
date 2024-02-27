@@ -1,4 +1,4 @@
-h2,p{
+h2,p, .img_prefectos{
     text-align: center;
 }
 body{
@@ -21,7 +21,6 @@ header{
     font-weight: 700;
     text-shadow: 0.5px 0.5px 1px black;
 }
-
 .date{
     flex: 1;
     background:rgb(0,126, 103);
@@ -30,4 +29,12 @@ header{
     text-shadow: 1px 1px 1px black;
     padding: 5px;
 }
-
+.img_prefectos img{
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 3px 2px 1px black;
+    transition: height .5s;
+}
+.img_prefectos img:hover{
+    height: 120px;
+}

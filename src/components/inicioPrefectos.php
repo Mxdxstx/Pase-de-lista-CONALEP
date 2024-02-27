@@ -31,6 +31,7 @@ $fecha = date("d-m-Y");
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
         
+        
         <div class="main_title"><h1>Prefectura</h1></div>
         <div class="date"> 
             <h2> Fecha: <?php echo $fecha ?></h2>
@@ -96,6 +97,7 @@ $fecha = date("d-m-Y");
 
     <div class="main">
         <br>
+        <div id="imgPrefectos" class="img_prefectos"><img src="../../public/assets/img/conalepColours.png" alt="Conalep 026"></div>
 		<h2>Bienvenido(a)</h2><br>
 		<div class="hora">
             <p class="hour_text">La hora actual es:</p>
