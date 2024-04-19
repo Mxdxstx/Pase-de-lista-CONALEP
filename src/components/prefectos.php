@@ -19,7 +19,6 @@ date_default_timezone_set('America/Chihuahua');
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/estiloPaseLista.css">
     <link rel="stylesheet" href="../css/prefectos.css">
-    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body id="body">
@@ -31,7 +30,7 @@ date_default_timezone_set('America/Chihuahua');
             <h2>Pase De Lista</h2>
         </div>
 		<div class="date">
-			<h2 class='title'><?php echo date('Y-m-d'); ?></h2> 
+			<h2 class='title' ><?php echo date('Y-m-d'); ?></h2> 
         </div>
     </header>
 
