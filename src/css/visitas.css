@@ -7,17 +7,39 @@ body{
 }
 td, th{
 	border-collapse: collapse;
-	min-width:150px;
-	max-width:150px;
 	border: 1px solid black;
     min-width: 250px;
     padding: 10px;
 }
 .main{
-    width: 60%;
-    margin: auto;
+    margin: 1rem;
 }
 .encabezados{
     background: rgb(0,126, 103);
     color:white;
+}
+.input_nombre{
+    margin-top: 1rem;
+}
+
+.input_nombre, .input_motivo{
+    width: 300px;
+    margin-bottom : 1rem; ;
+    height: 32px;
+    border:1px solid lightgray;
+}
+
+.btnEnviar{
+    margin-bottom: 1rem;
+    background: rgb(58, 58, 247);
+    color: white;
+    width: 100px;
+    height: 32px;
+    border: 1px solid rgb(15, 15, 245);
+}
+.btnEnviar:hover{
+    cursor: pointer;
+}
+.btnEnviar:active{
+    background-color: rgb(113, 113, 243);
 }

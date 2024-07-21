@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(empty($_SESSION["id"])) {
+    header("location: login.php");
+}
+
+include '../controllers/conexion.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,31 +92,22 @@
 
     <div class="main">
         <form class="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            Por favor llene los siguientes campos <br/> 
-            <input type="text" name="nombre" class="input_nombre" placeholder="Ingrese su nombre" /><br>
-            <input type="text" name="motivo" class="input_motivo" placeholder="Motivo de visita" /><br>
+            <label class="instrucciones">Por favor, llene los siguientes campos</label> <br/> 
+            <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" /><br>
+            <input type="text" name="motivo" class="input_motivo" placeholder=" Motivo de visita" /><br>
 
-            <button id="enviar" class="btn btn-enviar">
+            <button id="enviar" name="btnEnviar" class="btnEnviar">
                 Enviar
             </button> 
         </form>
-
+        <?php
+		if(isset($_POST['btnEnviar'])){
+		include("../controllers/registrar-visitas.php");}
+		?>
         <table cellspacing="0" class="tabla_visitas">
-			<tr class="encabezados">
-                <th>Nombre</th>
-                <th>Asunto</th>
-                <th>Fecha y hora de entrada</th>
-            </tr>
-            <tr class="table_data">
-                <td>ANGEL IVÁN MODESTO HERNÁNDEZ</td>
-                <td>SERVICIO SOCIAL</td>
-                <td>2024-02-17 14:07:14</td>
-            </tr>
-            <tr class="table_data">
-                <td>GAEL ESQUIVEL</td>
-                <td>PROYECTO PASE DE LISTA</td>
-                <td>2024-01-17 09:22:22</td>
-            </tr>
+        <?php
+            include('../controllers/cargar-visitas.php')            
+        ?>
 		</table>
     </div>
 

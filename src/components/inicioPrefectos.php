@@ -32,7 +32,7 @@ $fecha = date("d-m-Y");
         </div>
         
         
-        <div class="main_title"><h1>Prefectura</h1></div>
+        <div class="main_title"><h2>Prefectura</h2></div>
         <div class="date"> 
             <h2> Fecha: <?php echo $fecha ?></h2>
         </div>
@@ -98,14 +98,19 @@ $fecha = date("d-m-Y");
     <div class="main">
         <br>
         <div id="imgPrefectos" class="img_prefectos"><img src="../../public/assets/img/conalepColours.png" alt="Conalep 026"></div>
-		<h2>Bienvenido(a)</h2><br>
-		<div class="hora">
-            <p class="hour_text">La hora actual es:</p>
-            <p class='current_hour' id="horaActual"></p>
+		<div class="animated-title">
+            <h1>Bienvenido(a)</h1>
+            <p> Sistema de registro de entradas del CONALEP Juárez I</p><br>
+            <div class="hora">
+                <p class="hour_text">La hora actual es:</p>
+                <p class='current_hour' id="horaActual"></p>
+            </div>
         </div>
+       
     </div>
 	<script src="../scripts/prefectos/barralateral.js"></script>
     <script src="../scripts/prefectos/horaActual.js"></script>
+    <script src="../scripts/prefectos/coinFlip.js"></script>
 
 </body>
 </html>
