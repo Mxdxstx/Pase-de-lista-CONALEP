@@ -32,27 +32,52 @@ date_default_timezone_set('America/Chihuahua');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prefectos</title>
 
-	<link rel="stylesheet" href="../css/estilos.css">
 	<link rel="stylesheet" href="../css/reportes.css">
     <link rel="stylesheet" href="../css/estilosReportes.css">
-
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-	<script>
-        function validarFormulario() {
-            var fechaInput = document.getElementById("fecha");
-            var fechaFinInput = document.getElementById("fechaD");
 
-            if (fechaInput.value === "" || fechaFinInput.value === "") {
-            alert("Falta Una Fecha Por Seleccionar");
-                return false; // Evita que el formulario se envíe
-            }
+    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"></script>
+	
+    <style type="text/css">
+        .text-center {
+            text-align: left;
+            margin-left: 20px;
         }
-    </script>
-	<script>
-        function refrescarPagina() {
-            location.reload(); // Esta línea recarga la página actual
+        form {
+            margin: 10px 0;
         }
-    </script>
+        label {
+            margin-right: 10px; 
+        }
+        input[type="date"] {
+            padding: 8px;
+            margin-right: 10px;
+        }
+        button[type="submit"], #btnExportar, button[type="button"] {
+            padding: 8px 15px;
+            margin-right: 10px; 
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover, #btnExportar:hover, button[type="button"]:hover {
+            background-color: #218838;
+        }
+        #btnExportar {
+            display: inline-flex;
+            align-items: center;
+        }
+        #btnExportar i {
+            margin-right: 5px;
+        }
+    </style>
 </head>
 
 <body id="body">
@@ -131,12 +156,10 @@ date_default_timezone_set('America/Chihuahua');
 					<input type="date" id="fecha" name="fecha">
 					<label for="fecha">Fecha Fin:</label>
 					<input type="date" id="fechaD" name="fechaD">
-					<button type="submit" onclick="validarFormulario()">Buscar</button>
+					<button type="submit">Buscar</button>
 					<button id="btnExportar" class="btn btn-success">
-					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
+					    <i class="fas fa-file-excel"></i> Exportar Datos a Excel
 					</button>
-					<button type="button" onclick="refrescarPagina()">Limpiar</button>
-
 			</form>
 		</h3>
 			<div style="overflow: auto; width: 1120px; height: 600px">
