@@ -7,7 +7,7 @@ include("conexion.php");
             $motivo = trim($_POST["motivo"]);
             $fechaHoraActual = date("Y-m-d H:i:s");
             $fechaHoraSalida = date("Y-m-d H:i:s");
-            $identificacion = "INE";
+            $identificacion = trim($_POST["identificacion"]);
 
             $sql="INSERT INTO visitas(nombre, asunto, fecha_hora_entrada, fecha_hora_salida, identificacion) 
             VALUES ('$nombre', '$motivo', '$fechaHoraActual', '$fechaHoraSalida','$identificacion')";

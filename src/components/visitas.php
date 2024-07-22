@@ -93,9 +93,15 @@ include '../controllers/conexion.php';
     <div class="main">
         <form class="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <label class="instrucciones">Por favor, llene los siguientes campos</label> <br/> 
-            <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" /><br>
-            <input type="text" name="motivo" class="input_motivo" placeholder=" Motivo de visita" /><br>
-
+            <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" />
+            <input type="text" name="motivo" class="input_motivo" placeholder=" Motivo de visita" />
+            <select name="identificacion" id="id_select" class="id_select">
+                <option value="No especificado">Identificación</option>
+                <option value="INE">INE</option>
+                <option value="Credencial">Credencial</option>
+                <option value="Licencia de conducir">Licencia de conducir</option>
+                <option value="Otro">Otro</option>
+            </select>
             <button id="enviar" name="btnEnviar" class="btnEnviar">
                 Enviar
             </button> 

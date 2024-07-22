@@ -14,7 +14,6 @@ if ($resultado->num_rows > 0) {
             <th>Nombre</th>
             <th>Asunto</th>
             <th>Fecha y hora de entrada</th>
-            <th>Hora de salida</th>
             <th>Tipo de identificación</th>
          </tr>";
     while ($fila = $resultado->fetch_assoc()) {
@@ -22,7 +21,6 @@ if ($resultado->num_rows > 0) {
             echo "<td>" . $fila["nombre"] . "</td>";
             echo "<td>" . $fila["asunto"] . "</td>";
             echo "<td>" . $fila["fecha_hora_entrada"] . "</td>";
-            echo "<td>" . $fila["fecha_hora_salida"] . "</td>";
             echo "<td>" . $fila["identificacion"] . "</td>";
         echo "</tr>";
     }
