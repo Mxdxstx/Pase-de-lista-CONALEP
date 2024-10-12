@@ -52,3 +52,16 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 });
+
+function validarBusqueda(event) {
+	var inputValor = document.querySelector('input[name="buscar"]').value.trim();
+	if (inputValor === '') {
+		alert('Ingrese una matricula.');
+		event.preventDefault(); 
+		return; 
+	}
+	if (!/^[\d-]+$/.test(inputValor)) {
+		alert('No se permite la captura de letras.');
+		event.preventDefault(); 
+	}
+}
