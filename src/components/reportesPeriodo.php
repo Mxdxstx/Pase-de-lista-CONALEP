@@ -41,43 +41,6 @@ date_default_timezone_set('America/Chihuahua');
     <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"></script>
-	
-    <style type="text/css">
-        .text-center {
-            text-align: left;
-            margin-left: 20px;
-        }
-        form {
-            margin: 10px 0;
-        }
-        label {
-            margin-right: 10px; 
-        }
-        input[type="date"] {
-            padding: 8px;
-            margin-right: 10px;
-        }
-        button[type="submit"], #btnExportar, button[type="button"] {
-            padding: 8px 15px;
-            margin-right: 10px; 
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button[type="submit"]:hover, #btnExportar:hover, button[type="button"]:hover {
-            background-color: #218838;
-        }
-        #btnExportar {
-            display: inline-flex;
-            align-items: center;
-        }
-        #btnExportar i {
-            margin-right: 5px;
-        }
-    </style>
 </head>
 
 <body id="body">
