@@ -36,62 +36,7 @@ date_default_timezone_set('America/Chihuahua');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"></script>
 
-    <script>
-        function validarBusqueda(event) {
-            var inputValor = document.querySelector('input[name="buscar"]').value.trim();
-            if (inputValor === '') {
-                alert('Ingrese una matricula.');
-                event.preventDefault(); 
-                return; 
-            }
-            if (!/^[\d-]+$/.test(inputValor)) {
-                alert('Ingrese solo números o guiones para la búsqueda.');
-                event.preventDefault(); 
-            }
-        }
-    </script>
-
-    <style type="text/css">
-        .text-center {
-            text-align: left;
-            margin-left: 20px;
-        }
-        .form_control, .text-center h3 {
-            margin: 10px 5px;
-            padding: 8px;
-            display: inline-flex; 
-            align-items: center; 
-            font-size: 16px;
-        }
-        .btn-success {
-            padding: 8px 15px;
-            margin: 10px 5px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .btn-success:hover {
-            background-color: #218838;
-        }
-        .btn-block, .btn-sm {
-            display: inline-flex;
-            align-items: center; 
-            padding: 5px 10px;
-            font-size: 0.875rem;
-        }
-        /* Estilo para el botón de exportar */
-        #btnExportar {
-            display: inline-flex; 
-            vertical-align: middle;
-            align-items: center; 
-        }
-        #btnExportar i {
-            margin-right: 5px;
-        }
-    </style>
+    <script src="../scripts/prefectos/script.js"></script>
 </head>
 
 <body id="body">
@@ -166,7 +111,7 @@ date_default_timezone_set('America/Chihuahua');
 			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 				Buscar Matricula de Alumno 
 				<input type="text" name="buscar" class="form_control" placeholder="" />
-				<input type="submit" name="buscador" value="Buscar" class="btn-block btn-sm btn-success" onclick="validarBusqueda(event)">
+                <button type="submit" onclick="validarBusqueda(event)">Buscar</button>
 				<button id="btnExportar" class="btn btn-success">
 					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
 				</button> 
