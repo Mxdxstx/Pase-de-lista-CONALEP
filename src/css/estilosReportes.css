@@ -95,6 +95,11 @@ input[type="date"] {
     padding: 8px;
     margin-right: 10px;
 }
+input.form_control {
+    width: 150px;
+    height: 35px;
+    margin-right: 10px;
+}
 button[type="submit"], #btnExportar, button[type="button"] {
     padding: 8px 15px;
     margin-right: 10px; 
