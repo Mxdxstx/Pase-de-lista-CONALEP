@@ -65,3 +65,18 @@ function validarBusqueda(event) {
 		event.preventDefault(); 
 	}
 }
+
+function validarVisita(event) {
+    var inputValor = document.querySelector('input[name="nombre"]').value.trim();
+    
+    if (inputValor === '') {
+        alert('Ingrese el nombre.');
+        event.preventDefault(); 
+        return; 
+    }
+
+    if (!/^[A-Za-z\s]+$/.test(inputValor)) {
+        alert('Solo se permiten letras.');
+        event.preventDefault(); 
+    }
+}
