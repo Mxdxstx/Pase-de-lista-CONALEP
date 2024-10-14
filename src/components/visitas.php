@@ -3,9 +3,11 @@ session_start();
 if(empty($_SESSION["id"])) {
     header("location: login.php");
 }
-
+//Se envia nuevamente la informacion previamente capturada cuando se refresca la pantalla.
 include '../controllers/conexion.php';
+date_default_timezone_set('America/Chihuahua');
 
+$fecha = date("d-m-Y");
 ?>
 
 
@@ -14,23 +16,24 @@ include '../controllers/conexion.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de visitas</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/estilosReportes.css">
     <link rel="stylesheet" href="../css/visitas.css">
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-
-    <title>Registro de visitas</title>
 </head>
-<body>
+<body id="body">
     
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
-        
-        <div class="main_text"><h1>Registro De Visitas</h1></div>
+		<div class="hora">
+			<p class='title'><?php echo date('Y-m-d H:i:s'); ?></p> 
+        </div>
     </header>
 
     <div class="menu__side" id="menu_side">
@@ -90,34 +93,37 @@ include '../controllers/conexion.php';
         </div>
     </div>
 
-    <div class="main">
-        <form class="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <label class="instrucciones">Por favor, llene los siguientes campos</label> <br/> 
-            <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" />
-            <input type="text" name="motivo" class="input_motivo" placeholder=" Motivo de visita" />
-            <select name="identificacion" id="id_select" class="id_select">
-                <option value="No especificado">Identificación</option>
-                <option value="INE">INE</option>
-                <option value="Credencial">Credencial</option>
-                <option value="Licencia de conducir">Licencia de conducir</option>
-                <option value="Otro">Otro</option>
-            </select>
-            <button id="enviar" name="btnEnviar" class="btnEnviar">
-                Enviar
-            </button> 
-        </form>
+    <main>
+        <h3 class="text-center">
+            <form class="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <label class="instrucciones">Por favor, llene los siguientes campos</label> <br/> 
+                <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" />
+                <input type="text" name="motivo" class="input_motivo" placeholder=" Motivo de visita" />
+                <select name="identificacion" id="id_select" class="id_select">
+                    <option value="No especificado">Identificación</option>
+                    <option value="INE">INE</option>
+                    <option value="Credencial">Credencial</option>
+                    <option value="Licencia de conducir">Licencia de conducir</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <button id="enviar" name="btnEnviar" class="btnEnviar" onclick="validarVisita(event)">
+                    Enviar
+                </button> 
+            </form>
+        </h3>
         <?php
 		if(isset($_POST['btnEnviar'])){
-		include("../controllers/registrar-visitas.php");}
+		    include("../controllers/registrar-visitas.php");}
 		?>
         <table cellspacing="0" class="tabla_visitas">
         <?php
             include('../controllers/cargar-visitas.php')            
         ?>
 		</table>
-    </div>
+    </main>
 
     <script src="../scripts/prefectos/barralateral.js"></script>
     <script src="../scripts/prefectos/horaActual.js"></script>
+    <script src="../scripts/prefectos/script.js"></script>
 </body>
 </html>
