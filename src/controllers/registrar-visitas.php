@@ -12,7 +12,9 @@ include("conexion.php");
             $sql="INSERT INTO visitas(nombre, asunto, fecha_hora_entrada, fecha_hora_salida, identificacion) 
             VALUES ('$nombre', '$motivo', '$fechaHoraActual', '$fechaHoraSalida','$identificacion')";
         if ($conexion->query($sql) === TRUE) {
+            header("Location: " . $_SERVER['PHP_SELF']);
             echo "<p class='ok'>¡Registro exitoso!</p><br/>";
+            exit;
         } else {
             echo "<p class='bad'>Error al insertar el registro: " . $conexion->error."</p>";
         }
