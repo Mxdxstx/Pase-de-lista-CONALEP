@@ -3,7 +3,6 @@ session_start();
 if(empty($_SESSION["id"])) {
     header("location: login.php");
 }
-//Se envia nuevamente la informacion previamente capturada cuando se refresca la pantalla.
 include '../controllers/conexion.php';
 date_default_timezone_set('America/Chihuahua');
 
