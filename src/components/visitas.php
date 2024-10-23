@@ -20,7 +20,7 @@ $fecha = date("d-m-Y");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="stylesheet" href="../css/estilosReportes.css">
+    <link rel="stylesheet" href="../css/reportes.css">
     <link rel="stylesheet" href="../css/visitas.css">
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
@@ -115,11 +115,13 @@ $fecha = date("d-m-Y");
 		if(isset($_POST['btnEnviar'])){
 		    include("../controllers/registrar-visitas.php");}
 		?>
+        <div style="overflow: auto; width: 1120px; height: 600px">
         <table cellspacing="0" class="tabla_visitas">
         <?php
             include('../controllers/cargar-visitas.php')            
         ?>
 		</table>
+        </div>
     </main>
 
     <script src="../scripts/prefectos/barralateral.js"></script>
