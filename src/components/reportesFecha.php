@@ -30,7 +30,6 @@ date_default_timezone_set('America/Chihuahua');
     <title>Prefectos</title>
 
 	<link rel="stylesheet" href="../css/reportes.css">
-    <link rel="stylesheet" href="../css/estilosReportes.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 	
 	<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
