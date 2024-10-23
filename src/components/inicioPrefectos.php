@@ -19,7 +19,7 @@ $fecha = date("d-m-Y");
 
     <link rel="stylesheet" href="../css/inicioPrefectos.css">
     <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="stylesheet" href="../css/estilosReportes.css">
+    <link rel="stylesheet" href="../css/reportes.css">
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
