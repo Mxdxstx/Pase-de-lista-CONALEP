@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 *{
     margin: 0;
@@ -231,10 +230,10 @@ a.selected{
 }
 
 .envoltura {
-    position:relative;  /* Esto arregla un bug en IE7 */
+    position:relative; 
     clear:both;
     float:left;
-    width:100%;         /* el ancho de toda la página */
+    width:100%;        
     overflow:hidden;        
 }
 /* configuración en común de las columnas */
@@ -320,24 +319,6 @@ td, th{
 	background: #e7e7e7;
 	padding-left: -20px;
 }
-.title {
-    font-size: 1.25em;
-    position: relative;
-    margin: 0 auto 1em;
-    padding: 1em 1em .25em 1em;
-    text-align: center;
-    text-transform: uppercase;
-}
-.title:after {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 200px;
-    height: 4px;
-    margin-left: -100px;
-    content: '';
-    background-color: #fff;
-}
 
 table {
   border-collapse: collapse;
@@ -364,3 +345,61 @@ tr:nth-child(even) {
 }
 
 
+
+.body_move{
+    margin-left: 250px;
+}
+
+.menu__side_move{
+    width: 250px;
+}
+
+
+@media screen and (max-width: 760px){
+    .body_move{
+        margin-left: 0px;
+    }
+
+    .menu__side_move{
+        width: 80px;
+        left: -80px;
+    }
+}
+
+
+.ic_prefectos {
+    width: 30px;
+    height: 30px;
+    margin-left: -5px;            
+    margin-right: 10px;        
+    cursor: pointer;
+    filter: invert(100%) brightness(100%);
+}
+
+.ic_barra {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    cursor: pointer;
+    filter: invert(0%) brightness(0%);
+}
+
+thead {
+    position: sticky;
+    top: 0;            
+}
+
+.date {
+    flex: 1;
+    background: rgb(0, 126, 103);
+    border-radius: 20px 0 0 20px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    padding: 5px;
+}
+
+.main_title {
+    flex: 1;
+    text-shadow: 1px 1px 1px gray;
+    margin-left: 20px;
+}
