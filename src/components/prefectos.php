@@ -86,7 +86,7 @@ date_default_timezone_set('America/Chihuahua');
         </div>
         </div>
         <main class = "main">
-		<form class="tabla" action="prefectos.php" method="post">
+		<form class="tabla" action="prefectos.php" method="post" id="formulario">
             <div id="contenedor-formulario">
 				<textarea placeholder="Matricula" name="matricula" id="resultado"></textarea><br>			
 				<button type="submit" name="btnEnviar" class="btnEnviar">Enviar</button>
@@ -109,5 +109,7 @@ date_default_timezone_set('America/Chihuahua');
     </main>
 	<script src="../scripts/prefectos/barralateral.js"></script>
     <script src="../scripts/prefectos/registrarAsistencia.js"> </script>
+    <script src="../scripts/prefectos/enterRegistrarAsistencia.js"> </script>
+
 </body>
 </html>
