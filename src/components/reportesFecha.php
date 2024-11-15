@@ -18,6 +18,7 @@ $consulta = "SELECT asistencias.matricula, alumnos.primer_apellido, alumnos.segu
 
 $guardar = $conexion->query($consulta);
 date_default_timezone_set('America/Chihuahua');
+$fecha = date("d-m-Y");
 
 ?>
 
@@ -29,33 +30,25 @@ date_default_timezone_set('America/Chihuahua');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prefectos</title>
 
-    <link rel="stylesheet" href="../css/estilos.css">
-	<link rel="stylesheet" href="../css/reportes.css">
-    <link rel="stylesheet" href="../css/estilosReportes.css">
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-	
+	<link rel="stylesheet" href="../css/reportes.css">	
 	<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
     <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
-	<script>
-        function validarFormulario() {
-            var fechaInput = document.getElementById("fecha");
-            if (fechaInput.value === "") {
-                alert("Por favor, selecciona una fecha.");
-                return false; // Evita que el formulario se envíe
-            }
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"></script>
 </head>
 
 <body id="body">
 
     <header>
         <div class="icon__menu">
-            <i class="fas fa-bars" id="btn_open"></i>
+            <img src="../../public/assets/img/Img_Iconos/bar.svg" id="btn_open" class="ic_barra"></i>
         </div>
-		<div class="hora">
-			<p class='title'><?php echo date('Y-m-d H:i:s'); ?></p> 
+		<div class="main_title">
+            <h2>Reportes por Fecha</h2>
+        </div>
+        <div class="date"> 
+            <h2> Fecha: <?php echo $fecha ?></h2>
         </div>
     </header>
 
@@ -67,66 +60,59 @@ date_default_timezone_set('America/Chihuahua');
         </div>
 		
         <div class="options__menu">	
-			
-			<a href="inicioPrefectos.php" >
+			<a href="inicioPrefectos.php">
                 <div class="option">
-                    <i class="fas fa-home" title="Inicio"></i>
+                    <img src="../../public/assets/img/Img_Iconos/house.svg" class="ic_prefectos" title="Inicio"></i>
                     <h4>Inicio</h4>
                 </div>
             </a>
-            <a href="prefectos.php" >
+            <a href="prefectos.php">
                 <div class="option">
-                <i class="fa-solid fa-check" title="Pase De Lista"></i>
+                    <img src="../../public/assets/img/Img_Iconos/check.svg" class="ic_prefectos" title="Pase De Lista"></i>
 					<h4>Pase De Lista</h4>
                 </div>
-            </a>
+            </a>    
             <a href="visitas.php" >
                 <div class="option">
-                <i class="fa-solid fa-book" title="Registro De Visitas"></i>
+                    <img src="../../public/assets/img/Img_Iconos/person.svg" class="ic_prefectos" title="Registro De Visitas"></i>
 					<h4>Registro De Visitas</h4>
                 </div>
-            </a>    		
-            <a href="reportesAlumnos.php" >
+            </a>    
+            <a href="reportesAlumnos.php">
                 <div class="option">
-					<i class="fa-solid fa-user" title="Reporte Por Alumno"></i>
+					<img src="../../public/assets/img/Img_Iconos/student.svg" class="ic_prefectos" title="Reporte Por Alumno"></i>
 					<h4>Reportes Por Alumno</h4>
                 </div>
             </a>
-			
 			<a href="reportesFecha.php" class="selected">
                 <div class="option">
-					<i class="fa-solid fa-calendar-days" title="Reporte Por Fecbas"></i>
+					<img src="../../public/assets/img/Img_Iconos/calendar.svg" class="ic_prefectos"  title="Reporte Por Fechas"></i>
 					<h4>Reportes Por Fechas</h4>
                 </div>
             </a>
-			
 			<a href="reportesPeriodo.php" >
                 <div class="option">
-					<i class="fa-solid fa-chart-simple" title="Reporte Por Periodo"></i>
+					<img src="../../public/assets/img/Img_Iconos/chart.svg" class="ic_prefectos" title="Reporte Por Periodo"></i>
 					<h4>Reportes Por Periodo</h4>
                 </div>
             </a>
-			
-			<a href="controladores/controlador-cerrar-sesion.php" >
+			<a href="../controllers/controlador-cerrar-sesion.php" >
                 <div class="option">
-					<i class="fa-solid fa-right-to-bracket" title="Cerrar Sesion"></i>
-                    <h4>Cerrar Sesión</h4>
+					<img src="../../public/assets/img/Img_Iconos/right.svg" class="ic_prefectos" title="Cerrar Sesión"></i>
+                    <h4>Cerrar Sesion</h4>
                 </div>
             </a>
         </div>
-
         </div>
     <main>
 		<h3 class="text-center">
 			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 					<label for="fecha">Selecciona una fecha:</label>
 					<input type="date" id="fecha" name="fecha">
-					<button type="submit" onclick="validarFormulario()">Buscar</button>
+					<button type="submit">Buscar</button>
 					<button id="btnExportar" class="btn btn-success">
-					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
+					    <i class="fas fa-file-excel"></i> Exportar Datos a Excel
 					</button>
-					<button type="button" onclick="limpiarFormulario()">Limpiar</button>
-
 			</form>
 		</h3>
 			<div style="overflow: auto; width: 1120px; height: 600px">
@@ -153,6 +139,6 @@ date_default_timezone_set('America/Chihuahua');
 			</div>					
     </main>	
 	<script src="../scripts/prefectos/barralateral.js"></script>
-	<script src="../scripts/prefectos/excel.js"></script>	
+	<script src="../scripts/prefectos/excel.js"></script>
 </body>
 </html

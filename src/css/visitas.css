@@ -1,5 +1,6 @@
 body{
-    background: #f5f5f5;
+    background:#F0F0F0;  
+
 }
 .tabla{
     padding: 20px;
@@ -7,17 +8,168 @@ body{
 }
 td, th{
 	border-collapse: collapse;
-	min-width:150px;
-	max-width:150px;
 	border: 1px solid black;
     min-width: 250px;
     padding: 10px;
 }
 .main{
-    width: 60%;
-    margin: auto;
+    margin: 1rem;
 }
 .encabezados{
     background: rgb(0,126, 103);
     color:white;
 }
+.input_nombre{
+    margin-top: 1rem;
+}
+
+.input_nombre, .input_motivo, .id_select{
+    width: 250px;
+    margin-bottom : 1rem; ;
+    height: 32px;
+    border:1px solid lightgray;
+}
+header{
+    width: 100%;
+    height: 80px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+.title {
+    font-size: 1.25em;
+    position: relative;
+    margin: 0 auto 1em;
+    padding: 1em 1em .25em 1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.title:after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 200px;
+    height: 4px;
+    margin-left: -100px;
+    content: '';
+    background-color: #fff;
+}
+
+.btnEnviar{
+    margin-bottom: 1rem;
+    background: #28a745;
+    color: white;
+    width: 100px;
+    height: 35px;
+    border: 1px solid #28a745;
+}
+.btnEnviar:hover{
+    cursor: pointer;
+}
+.btnEnviar:active{
+    background-color: rgb(3, 148, 3);
+}
+/*Ocultar scroll para chrome, safari y opera*/
+.menu__side::-webkit-scrollbar{
+    display: none;
+}
+
+/*Ocultar scroll para IE, Edge y Firefox*/
+.menu__side{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.name__page{
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
+}
+.name__page p {
+    padding-left: 3px;
+}
+.options__menu{
+    padding: 20px 30px;
+    position: absolute;
+    top: 80px;
+}
+
+.options__menu a{
+    color: #ffffffb2;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options__menu a:hover{
+    color: white;
+}
+
+.options__menu .option{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option i{
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options__menu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+}
+
+a.selected{
+    color: #fff;
+}
+
+.selected:before{
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+/*Clases para usar en JavaScript*/
+
+.body_move{
+    margin-left: 250px;
+}
+
+.menu__side_move{
+    width: 250px;
+}
+
+
+@media screen and (max-width: 760px){
+    .body_move{
+        margin-left: 0px;
+    }
+
+    .menu__side_move{
+        width: 80px;
+        left: -80px;
+    }
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;              
+}
+

@@ -21,3 +21,34 @@ header{
     text-shadow: 1px 1px 1px black;
     padding: 5px;
 }
+.btnEnviar{
+    margin-bottom: 1rem;
+    background: #28a745;
+    color: white;
+    width: 100px;
+    height: 35px;
+    border: 1px solid #28a745;
+}
+.btnEnviar:hover{
+    cursor: pointer;
+}
+.btnEnviar:active{
+    background-color: rgb(3, 148, 3);
+}
+
+.ic_prefectos {
+    width: 30px;
+    height: 30px;
+    margin-left: -5px;            
+    margin-right: 10px;        
+    cursor: pointer;
+    filter: invert(100%) brightness(100%);
+}
+
+.ic_barra {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    cursor: pointer;
+    filter: invert(0%) brightness(0%);
+}
