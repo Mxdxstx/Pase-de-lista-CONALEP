@@ -15,7 +15,9 @@ $consulta = "SELECT asistencias.matricula, alumnos.primer_apellido, alumnos.segu
 $guardar = $conexion->query($consulta);
 date_default_timezone_set('America/Chihuahua');
 
+
 $fecha = date("d-m-Y");
+
 
 ?>
 
@@ -26,8 +28,15 @@ $fecha = date("d-m-Y");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reportes por matrícula</title>
+
     
 	<link rel="stylesheet" href="../css/reportes.css">	
+
+
+	<link rel="stylesheet" href="../css/reportes.css">
+    <link rel="stylesheet" href="../css/estilosReportes.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
 	<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
     <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
@@ -94,7 +103,12 @@ $fecha = date("d-m-Y");
 					<h4>Reportes Por Periodo</h4>
                 </div>
             </a>
+
 			<a href="../controllers/controlador-cerrar-sesion.php" >
+
+	
+			<a href="controladores/controlador-cerrar-sesion.php" >
+
                 <div class="option">
 					<img src="../../public/assets/img/Img_Iconos/right.svg" class="ic_prefectos" title="Cerrar Sesión"></i>
                     <h4>Cerrar Sesion</h4>
@@ -105,8 +119,13 @@ $fecha = date("d-m-Y");
     <main>
         <h3 class="text-center">
 			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
 				<label for="buscar">Buscar Matricula: </label>
 				<input type="text" name="buscar" class="form_control"  placeholder=""/>
+
+				Buscar Matricula de Alumno 
+				<input type="text" name="buscar" class="form_control" placeholder="" />
+
                 <button type="submit" onclick="validarBusqueda(event)">Buscar</button>
 				<button id="btnExportar" class="btn btn-success">
 					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
