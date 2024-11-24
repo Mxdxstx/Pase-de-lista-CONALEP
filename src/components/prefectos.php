@@ -4,11 +4,12 @@ if (empty($_SESSION["id"])) {
 	header("location: login.php");
 }
 include '../controllers/conexion.php';
+
 $consulta = "SELECT * FROM usuarios";
 $guardar = $conexion->query($consulta);
 date_default_timezone_set('America/Chihuahua');
-
 $fecha = date("d-m-Y");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,16 +86,29 @@ $fecha = date("d-m-Y");
         </div>
         </div>
         <main class="main">
-            <form class="tabla" action="prefectos.php" method="post">
-                <div id="contenedor-formulario">
-                    <textarea placeholder="Matricula" name="matricula" id="resultado"></textarea><br>			
+            
+            <form action="prefectos.php" method="post">
+                <div id="contenedor-formulario">  
+                <h2 for="codigo">Escanea el código de barras</h2><br>
+                <input type="text" id="matriculaAuto" name="matriculaAuto" autofocus>
+                <div class="contenedor-principal">
+                    <div class="titulo-con-imagen">
+                        <h2>Captura de Matrícula Manual</h2>
+                        <img src="../../public/assets/img/Img_Iconos/question.svg" class="pista" title="Usa esto cuando el alumno no tenga su credencial">
+                        </div>
+                    </div>
+                    <textarea name="matricula" id="resultado"></textarea><br>            
                     <button type="submit" name="btnEnviar" class="btnEnviar">Enviar</button>
                 </div>
             </form>
-            <p id="resultado"></p>
+            <p id="mensajeAlerta"></p>
+
             <?php
             if(isset($_POST['btnEnviar'])){
             include("../controllers/registrar-asistencia.php");}
+
+            if(isset($_POST['matriculaAuto'])){
+                include("../controllers/asistencia-automatica.php");}
             ?>
             <table cellspacing="0" class="tabla">
                 <?php
@@ -104,7 +118,5 @@ $fecha = date("d-m-Y");
         </main>
 	<script src="../scripts/prefectos/barralateral.js"></script>
     <script src="../scripts/prefectos/registrarAsistencia.js"> </script>
-    <script src="../scripts/prefectos/enterRegistrarAsistencia.js"> </script>
-
 </body>
 </html>
