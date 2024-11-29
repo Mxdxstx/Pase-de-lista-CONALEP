@@ -1,43 +1,37 @@
-const $btnExportar = document.querySelector("#btnExportar"),
-    $tabla = document.querySelector("#datos");
+document.addEventListener("click", function (event) {
+    // Verificar si el clic fue en el botón con id "btnExportar"
+    if (event.target && event.target.id === "btnExportar") {
+        console.log("Botón Exportar presionado");
 
-$btnExportar.addEventListener("click", function () {
-    let tableExport = new TableExport($tabla, {
-        exportButtons: false,
-    });
-    let exportData = tableExport.getExportData();
-    let excelData = exportData.datos.xlsx;
+        // Seleccionar la tabla dinámica
+        const $tabla = document.querySelector("#datos");
+        if ($tabla) {
+            // Lógica para exportar la tabla a Excel
+            let tableExport = new TableExport($tabla, {
+                exportButtons: false,
+            });
+            let exportData = tableExport.getExportData();
+            let excelData = exportData.datos.xlsx;
 
-    // Crear un nuevo workbook de SheetJS
-    let wb = XLSX.utils.book_new();
-    let ws = XLSX.utils.aoa_to_sheet(excelData.data);
+            // Crear el archivo Excel
+            let wb = XLSX.utils.book_new();
+            let ws = XLSX.utils.aoa_to_sheet(excelData.data);
 
-    // Estilos para la tabla en Excel
-    let wscols = [
-        { wch: 15 }, // Ancho de la primera columna
-        { wch: 25 }, // Ancho de la segunda columna
-        { wch: 20 }, // Ancho de la tercera columna
-        // Agrega más objetos para ajustar anchos de otras columnas
-    ];
+            // Ajustar anchos de las columnas
+            let wscols = [
+                { wch: 15 }, // Ancho de columna 1
+                { wch: 25 }, // Ancho de columna 2
+                { wch: 20 }, // Ancho de columna 3
+            ];
+            ws["!cols"] = wscols;
 
-    ws['!cols'] = wscols; // Aplicar estilos de ancho de columnas
+            XLSX.utils.book_append_sheet(wb, ws, excelData.sheetname);
 
-    // Centrar el contenido en las celdas
-    for (let r = 0; r < ws['!ref'].split(':')[1].replace(/\D/g, ''); r++) {
-        for (let c = 0; c < wscols.length; c++) {
-            let cellRef = XLSX.utils.encode_cell({ r: r, c: c });
-            if (!ws[cellRef]) continue;
-            ws[cellRef].s = { alignment: { horizontal: "center" } }; // Estilo de centrado horizontal
+            // Descargar el archivo Excel
+            let excelFilename = "Reporte.xlsx";
+            XLSX.writeFile(wb, excelFilename);
+        } else {
+            console.error("La tabla #datos no existe en el DOM");
         }
     }
-
-    // Agregar la hoja al workbook
-    XLSX.utils.book_append_sheet(wb, ws, excelData.sheetname);
-
-    // Asignar nombre al archivo Excel
-    let excelFilename = "Reporte"; // Nombre del archivo Excel
-    excelFilename += "." + excelData.fileExtension;
-
-    // Descargar el archivo Excel con el nombre asignado
-    XLSX.writeFile(wb, excelFilename);
 });

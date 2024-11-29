@@ -20,7 +20,11 @@ ORDER BY primer_apellido;";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) { 
-    echo "<table class='table-container'>";
+    echo "<h2>Alumnos ausentes  </h2>";    
+    echo "<button id='btnExportar' class='btn btn-success'>
+            <i class='fas fa-file-excel'></i> Exportar Datos a Excel
+        </button> ";
+    echo "<table id='datos' class='table-container'>";
     echo "<tr class='table_header'>
                 <td>Matricula</td>
                 <td>P. Apellido</td>
@@ -35,7 +39,7 @@ if ($resultado->num_rows > 0) {
         echo "<td>" . $fila["primer_apellido"] . "</td>";
         echo "<td>" . $fila["nombres"] . "</td>";
         echo "<td>" . $fila["grupo"] . "</td>";
-        echo "<td>" . $fila["fecha"] . "</td>";
+        echo "<td>Ausencia</td>";
         echo "</tr>";
     }
     echo "</table>";
