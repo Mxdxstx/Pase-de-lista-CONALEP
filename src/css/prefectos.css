@@ -52,3 +52,9 @@ header{
     cursor: pointer;
     filter: invert(0%) brightness(0%);
 }
+
+.pista{
+    background: lightgray;
+    border-radius: 50%;
+    padding: 3px;
+}

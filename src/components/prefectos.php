@@ -94,7 +94,7 @@ $fecha = date("d-m-Y");
                 <div class="contenedor-principal">
                     <div class="titulo-con-imagen">
                         <h2>Captura de Matrícula Manual</h2>
-                        <img src="../../public/assets/img/Img_Iconos/question.svg" class="pista" title="Usa esto cuando el alumno no tenga su credencial">
+                        <img class ='pista' src="../../public/assets/img/Img_Iconos/question.svg" class="pista" title="Usa esto cuando el alumno no tenga su credencial">
                         </div>
                     </div>
                     <textarea name="matricula" id="resultado"></textarea><br>            
