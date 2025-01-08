@@ -7,7 +7,7 @@ include '../controllers/conexion.php';
 
 $consulta = "SELECT * FROM usuarios";
 $guardar = $conexion->query($consulta);
-date_default_timezone_set('America/Chihuahua');
+date_default_timezone_set('America/Mazatlan');
 $fecha = date("d-m-Y");
 
 ?>
@@ -89,12 +89,12 @@ $fecha = date("d-m-Y");
             
             <form action="prefectos.php" method="post">
                 <div id="contenedor-formulario">  
-                <h2 for="codigo">Escanea el código de barras</h2><br>
+                <h2 for="codigo">Escanea o Captura el código de barras</h2><br>
                 <input type="text" id="matriculaAuto" name="matriculaAuto" autofocus>
+                
                 <div class="contenedor-principal">
                     <div class="titulo-con-imagen">
-                        <h2>Captura de Matrícula Manual</h2>
-                        <img class ='pista' src="../../public/assets/img/Img_Iconos/question.svg" class="pista" title="Usa esto cuando el alumno no tenga su credencial">
+                        <h2>Observaciones de Alumno</h2>
                         </div>
                     </div>
                     <textarea name="matricula" id="resultado"></textarea><br>            
@@ -102,7 +102,6 @@ $fecha = date("d-m-Y");
                 </div>
             </form>
             <p id="mensajeAlerta"></p>
-
             <?php
             if(isset($_POST['btnEnviar'])){
             include("../controllers/registrar-asistencia.php");}
