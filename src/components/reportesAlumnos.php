@@ -29,21 +29,12 @@ $fecha = date("d-m-Y");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reportes por matrícula</title>
 
-    
-	<link rel="stylesheet" href="../css/reportes.css">	
-
-
 	<link rel="stylesheet" href="../css/reportes.css">
     <link rel="stylesheet" href="../css/estilosReportes.css">
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 
-	<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
-    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
-    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"></script>
-
-    <script src="../scripts/prefectos/script.js"></script>
 </head>
 
 <body id="body">
@@ -123,13 +114,8 @@ $fecha = date("d-m-Y");
 				<label for="buscar">Buscar Matricula: </label>
 				<input type="text" name="buscar" class="form_control"  placeholder=""/>
 
-				Buscar Matricula de Alumno 
-				<input type="text" name="buscar" class="form_control" placeholder="" />
-
                 <button type="submit" onclick="validarBusqueda(event)">Buscar</button>
-				<button id="btnExportar" class="btn btn-success">
-					<i class="fas fa-file-excel"></i> Exportar Datos a Excel
-				</button> 
+				<button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button> 
 			</form>
 		</h3>
 			<div style="overflow: auto; width: 1120px; height: 600px">
@@ -156,6 +142,6 @@ $fecha = date("d-m-Y");
 			</div>					
     </main>
 	<script src="../scripts/prefectos/barralateral.js"></script>
-	<script src="../scripts/prefectos/excel.js"></script>
+	<script src="../scripts/prefectos/exportarPDF.js"></script>
 </body>
 </html>
