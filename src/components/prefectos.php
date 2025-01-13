@@ -91,13 +91,8 @@ $fecha = date("d-m-Y");
                 <div id="contenedor-formulario">  
                 <h2 for="codigo">Escanea o Captura el código de barras</h2><br>
                 <input type="text" id="matriculaAuto" name="matriculaAuto" autofocus>
-                
+                <!-- Agregar la seccion de comentarios-->
                 <div class="contenedor-principal">
-                    <div class="titulo-con-imagen">
-                        <h2>Observaciones de Alumno</h2>
-                        </div>
-                    </div>
-                    <textarea name="matricula" id="resultado"></textarea><br>            
                     <button type="submit" name="btnEnviar" class="btnEnviar">Enviar</button>
                 </div>
             </form>
