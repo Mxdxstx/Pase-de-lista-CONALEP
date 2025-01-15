@@ -120,6 +120,5 @@ $fecha = date("d-m-Y");
 
     <script src="../scripts/prefectos/barralateral.js"></script>
     <script src="../scripts/prefectos/horaActual.js"></script>
-    <script src="../scripts/prefectos/script.js"></script>
 </body>
 </html>
