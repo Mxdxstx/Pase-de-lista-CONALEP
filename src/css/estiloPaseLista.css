@@ -94,18 +94,17 @@ header{
     margin: 10px 0; 
     font-size: 16px; 
     font-family: 'Arial', sans-serif; 
-    border: 2px solid #ccc; 
+    border: 1px solid #d1d1d1; 
     border-radius: 8px; 
-    outline: none; 
-    transition: all 0.3s ease;
+    background-color: #ffffff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#matriculaAuto:hover {
-    border-color: rgb(0,126, 103);
-}
 
 #matriculaAuto:focus {
-    border-color: rgb(0,126, 103);
+    border-color: #28a745; 
+    outline: none;
 }
 
 /*Estilo tabla de registros*/
