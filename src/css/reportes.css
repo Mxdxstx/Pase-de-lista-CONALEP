@@ -69,11 +69,6 @@ header{
     transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
-.text-center {
-    text-align: left;
-    margin-left: 20px;
-}
-
 .btn-block, .btn-sm {
     display: inline-flex;
     align-items: center; 
@@ -81,18 +76,15 @@ header{
     font-size: 0.875rem;
 }
 /* Estilo para el botón de exportar */
-#btnExportar {
+#exportarPDF {
     display: inline-flex; 
     vertical-align: middle;
     align-items: center; 
 }
-#btnExportar i {
+#exportarPDF i {
     margin-right: 5px;
 }
-.text-center {
-    text-align: left;
-    margin-left: 20px;
-}
+
 form {
     margin: 10px 0;
 }
@@ -103,25 +95,82 @@ label {
 input[type="date"] {
     padding: 8px;
     margin-right: 10px;
+    border: 1px solid #d1d1d1;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
+input[type="date"]:focus{
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgb(0,126, 103);
+    outline: none;
+}
+
+button[type="submit"] {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+    width: auto;
+    height: 40px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    cursor: pointer;
+}
+
+button[type="submit"]:active {
+    background: #1c7430;
+    transform: scale(0.98);
+}
+
+#exportarPDF {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+    width: auto;
+    height: 40px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#exportarPDF:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    cursor: pointer;
+}
+
+#exportarPDF:active {
+    background: #1c7430;
+    transform: scale(0.98);
+}
+
 input.form_control {
     width: 150px;
     height: 35px;
     margin-right: 10px;
+    margin-bottom: 1rem;
+    padding: 0 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
-button[type="submit"], #btnExportar, button[type="button"] {
-    padding: 8px 15px;
-    margin-right: 10px; 
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+input.form_control:focus{
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgb(0,126, 103);
+    outline: none;
 }
-button[type="submit"]:hover, #btnExportar:hover, button[type="button"]:hover {
-    background-color: #218838;
-}
+
 .form_control, .text-center h3 {
     margin: 10px 5px;
     padding: 8px;
@@ -129,19 +178,7 @@ button[type="submit"]:hover, #btnExportar:hover, button[type="button"]:hover {
     align-items: center; 
     font-size: 16px;
 }
-.btn-success {
-    padding: 8px 15px;
-    margin: 10px 5px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.btn-success:hover {
-    background-color: #218838;
-}
+
 .btn-block, .btn-sm {
     display: inline-flex;
     align-items: center; 
@@ -149,12 +186,12 @@ button[type="submit"]:hover, #btnExportar:hover, button[type="button"]:hover {
     font-size: 0.875rem;
 }
 /* Estilo para el botón de exportar */
-#btnExportar {
+#exportarPDF {
     display: inline-flex; 
     vertical-align: middle;
     align-items: center; 
 }
-#btnExportar i {
+#exportarPDF i {
     margin-right: 5px;
 }
 /*Ocultar scroll para chrome, safari y opera*/
@@ -247,6 +284,7 @@ td, th{
 	min-width:150px;
 	max-width:150px;
 	border: 1px solid black;
+    
 }
 .col1,
 .col2
