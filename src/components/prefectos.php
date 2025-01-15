@@ -10,6 +10,23 @@ $guardar = $conexion->query($consulta);
 date_default_timezone_set('America/Mazatlan');
 $fecha = date("d-m-Y");
 
+$sql = "
+SELECT 
+    COUNT(asistencias.matricula) AS total_alumnos
+FROM asistencias
+INNER JOIN alumnos ON asistencias.matricula = alumnos.matricula
+INNER JOIN grupos ON alumnos.id_grupo = grupos.id_grupo
+WHERE DATE(fecha_hora) = CURDATE();
+";
+
+$resultado = $conexion->query($sql);
+
+$totalAlumnos = 0;
+
+if ($resultado->num_rows > 0) {
+    $fila = $resultado->fetch_assoc();
+    $totalAlumnos = $fila['total_alumnos'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,13 +105,15 @@ $fecha = date("d-m-Y");
         <main class="main">
             
             <form action="prefectos.php" method="post">
-                <div id="contenedor-formulario">  
+                <div id="contenedor-formulario">
+                <p class="contador">Total de alumnos registrados hoy: <strong><?php echo $totalAlumnos; ?></strong></p>
+  
                 <h2 for="codigo">Escanea o Captura el código de barras</h2><br>
                 <input type="text" id="matriculaAuto" name="matriculaAuto" autofocus>
                 <!-- Agregar la seccion de comentarios-->
                 <div class="contenedor-principal">
                     <button type="submit" name="btnEnviar" class="btnEnviar">Enviar</button>
-                </div>
+                </div> <br>
             </form>
             <p id="mensajeAlerta"></p>
             <?php
