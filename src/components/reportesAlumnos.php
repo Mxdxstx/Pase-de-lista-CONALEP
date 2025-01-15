@@ -111,7 +111,7 @@ $fecha = date("d-m-Y");
         <h3 class="text-center">
 			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
-				<label for="buscar">Buscar Matricula: </label>
+				<label for="buscar">Buscar Matricula de Alumno: </label>
 				<input type="text" name="buscar" class="form_control"  placeholder=""/>
 
                 <button type="submit" onclick="validarBusqueda(event)">Buscar</button>
