@@ -35,8 +35,8 @@ $fecha = date("d-m-Y");
 
 	<link rel="stylesheet" href="../css/reportes.css">
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+	<script src="../scripts/prefectos/jspdf.umd.min.js"></script>
+    <script src="../scripts/prefectos/jspdf.plugin.autotable.min.js"></script>
 
 </head>
 
