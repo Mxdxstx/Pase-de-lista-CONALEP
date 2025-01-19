@@ -8,10 +8,11 @@ if ($conexion->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["matriculaAuto"])) {
-    $codigo = trim($_POST["matriculaAuto"]);
+    $codigo = str_replace("'","-",$_POST["matriculaAuto"]);
 
     $sql = "INSERT INTO asistencias (matricula, fecha_hora) VALUES ('$codigo', '$fechaHoraActual')";
-    
+
+
     if (mysqli_query($conexion, $sql)) {
         header("Location: " . $_SERVER['PHP_SELF']);
         exit();
@@ -20,3 +21,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["matriculaAuto"])) {
     }
 }
 ?>
+
