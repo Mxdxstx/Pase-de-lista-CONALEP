@@ -37,6 +37,7 @@ if ($resultado->num_rows > 0) {
     <title>Pase de Lista</title>
     <link rel="stylesheet" href="../css/estiloPaseLista.css">
     <link rel="stylesheet" href="../css/prefectos.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body id="body">
@@ -119,9 +120,6 @@ if ($resultado->num_rows > 0) {
             <?php
             if(isset($_POST['btnEnviar'])){
             include("../controllers/registrar-asistencia.php");}
-
-            if(isset($_POST['matriculaAuto'])){
-                include("../controllers/asistencia-automatica.php");}
             ?>
             <table cellspacing="0" class="tabla">
                 <?php
