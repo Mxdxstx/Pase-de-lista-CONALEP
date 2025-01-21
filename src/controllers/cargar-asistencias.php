@@ -1,6 +1,6 @@
 <?php
 include("conexion.php");
-date_default_timezone_set('America/Chihuahua');
+date_default_timezone_set('America/Mazatlan');
 $fechaHoraActual = date("Y-m-d");
 
 $sql = "SELECT 
