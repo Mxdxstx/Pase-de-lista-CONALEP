@@ -4,7 +4,7 @@
 include("conexion.php");
 
 $grupoSeleccionado = $_GET["grupo"];
-date_default_timezone_set('America/Chihuahua');
+date_default_timezone_set('America/Mazatlan');
 $fechaHoraActual = date("Y-m-d");
 
 $sql = "SELECT alumnos.matricula, primer_apellido, nombres, asistencias.fecha_hora 
