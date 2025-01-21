@@ -4,7 +4,7 @@ if(empty($_SESSION["id"])) {
     header("location: login.php");
 }
 include '../controllers/conexion.php';
-date_default_timezone_set('America/Chihuahua');
+date_default_timezone_set('America/Mazatlan');
 
 $fecha = date("d-m-Y");
 ?>
