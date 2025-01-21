@@ -2,7 +2,7 @@
 include("conexion.php");
     if(isset($_POST['btnEnviar'])){
         if (!empty($_POST["nombre"] && (!empty($_POST["motivo"])) )) {
-            date_default_timezone_set('America/Chihuahua');
+            date_default_timezone_set('America/Mazatlan');
             $nombre = trim($_POST["nombre"]);
             $motivo = trim($_POST["motivo"]);
             $fechaHoraActual = date("Y-m-d H:i:s");
