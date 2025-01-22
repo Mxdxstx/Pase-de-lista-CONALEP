@@ -11,18 +11,18 @@ include("conexion.php");
 
             $sql="INSERT INTO visitas(nombre, asunto, fecha_hora_entrada, fecha_hora_salida, identificacion) 
             VALUES ('$nombre', '$motivo', '$fechaHoraActual', '$fechaHoraSalida','$identificacion')";
-        if ($conexion->query($sql) === TRUE) {
-            echo "<script>
-                        alert('Datos Ingresados');
-                        window.location= 'visitas.php'
-                    </script>";                
-                exit();
-            exit;
+            if ($conexion->query($sql) === TRUE) {
+                echo "<script>
+                        window.onload = function() {
+                            document.getElementById('modalMessage').innerText = 'Visita Registrada.';
+                            document.getElementById('customAlert').classList.add('show');
+                            setTimeout(() => { window.location = 'visitas.php'; }, 3000);
+                        };
+                    </script>";
+            exit();
         } else {
-            echo "<p class='bad'>Error al insertar el registro: " . $conexion->error."</p>";
+            echo "<p class='alert'>Favor de llenar los campos correctamente.</p>";
         }
-    }else{
-        echo "<p class='alert'>Favor de llenar los campos correctamente.</p>";
     }
         $conexion->close();
     }
