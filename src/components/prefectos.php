@@ -128,6 +128,5 @@ if ($resultado->num_rows > 0) {
             </table>
         </main>
 	<script src="../scripts/prefectos/barralateral.js"></script>
-    <script src="../scripts/prefectos/registrarAsistencia.js"> </script>
 </body>
 </html>
