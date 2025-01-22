@@ -6,7 +6,7 @@ if(empty($_SESSION["id"])) {
 include '../controllers/conexion.php';
 $where ="";
 if(!empty($_POST)){
-	$valor = $_POST['buscar'];
+    $valor = trim($_POST['buscar']);
 	if(!empty($valor)){
 		$where = "WHERE alumnos.matricula LIKE '%$valor%'";
 	}
@@ -109,39 +109,43 @@ $fecha = date("d-m-Y");
         </div>
     <main>
         <h3 class="text-center">
-			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-
+			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="formulario-busqueda">
 				<label for="buscar">Buscar Matricula de Alumno: </label>
 				<input type="text" name="buscar" class="form_control"  placeholder=""/>
 
-                <button type="submit" onclick="validarBusqueda(event)">Buscar</button>
+                <button type="submit" id="buscar" onclick="validarFormulario(event)">Buscar</button>
+                <button type="submit" onclick="recargarTabla()">Recargar Tabla</button>
 				<button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button> 
 			</form>
 		</h3>
-			<div style="overflow: auto; width: 1120px; height: 600px">
-				<table id="datos">
-					<thead class="text-muted">
-						<th class="text-center">Matricula</th>
-						<th class="text-center">Nombre(s)</th>
-						<th class="text-center">Primer Apellido</th>
-						<th class="text-center">Segundo Apellido</th>
-						<th class="text-center">Fecha y Hora de Ingreso</th>
-					</thead>
-					<tbody>
-						<?php while($row = $guardar->fetch_assoc()){?>
-							<tr>
-							<td><?php echo $row['matricula']; ?></td>
-							<td><?php echo $row['nombres']; ?></td>
-							<td><?php echo $row['primer_apellido']; ?></td>
-							<td><?php echo $row['segundo_apellido']; ?></td>		
-							<td><?php echo $row['fecha_hora']; ?></td>
-							</tr>
-						<?php }?>
-					</tbody>
-				</table>
-			</div>					
+        <div class="table-container">
+            <table id="datos">
+                <thead class="text-muted">
+                <tr>
+                    <th class="text-center">Matricula</th>
+                    <th class="text-center">Nombre(s)</th>
+                    <th class="text-center">Primer Apellido</th>
+                    <th class="text-center">Segundo Apellido</th>
+                    <th class="text-center">Fecha y Hora de Ingreso</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php while($row = $guardar->fetch_assoc()){?>
+                    <tr>
+                    <td><?php echo $row['matricula']; ?></td>
+                    <td><?php echo $row['nombres']; ?></td>
+                    <td><?php echo $row['primer_apellido']; ?></td>
+                    <td><?php echo $row['segundo_apellido']; ?></td>
+                    <td><?php echo $row['fecha_hora']; ?></td>
+                    </tr>
+                <?php }?>
+                </tbody>
+            </table>
+        </div>			
     </main>
 	<script src="../scripts/prefectos/barralateral.js"></script>
 	<script src="../scripts/prefectos/exportarPDF.js"></script>
+    <script src="../scripts/prefectos/validacionesReportes.js"></script>
+
 </body>
 </html>
