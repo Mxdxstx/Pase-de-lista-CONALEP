@@ -24,3 +24,16 @@ function validarFormulario(event) {
         location.reload(); 
     }
 }
+
+//Funciones Modal
+function showAlert() {
+    document.getElementById('customAlert').classList.add('show');
+}
+
+function hideAlert() {
+    document.getElementById('customAlert').classList.remove('show');
+}
+
+function redirect() {
+    window.location = 'visitas.php';
+}
