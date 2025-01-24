@@ -19,10 +19,12 @@ include("conexion.php");
                             setTimeout(() => { window.location = 'visitas.php'; }, 3000);
                         };
                     </script>";
-            exit();
-        } else {
-            echo "<p class='alert'>Favor de llenar los campos correctamente.</p>";
-        }
+                exit();
+            } else {
+                echo "<p class='bad'>Error al insertar el registro: " . $conexion->error . "</p>";
+            }
+    }else{
+        echo "<p class='alert'>Favor de llenar los campos correctamente.</p>";
     }
         $conexion->close();
     }
