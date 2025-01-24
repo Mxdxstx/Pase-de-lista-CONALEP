@@ -1,4 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
 
+body {
+    margin:0;
+    padding:0;
+    border:0;           
+    background: #F0F0F0;
+    min-width:600px; 
+    font-size:90%;
+    font-family: 'Inter', sans-serif;
+    margin-left: 80px;
+    margin-top: 80px;
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
 
 #resultado {
     width: 100%; 
@@ -68,11 +87,6 @@ button {
     width: auto; 
     padding: 10px 20px;
 }
-body{
-    margin-left: 80px;
-    margin-top: 80px;
-    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
-}
 main{
     padding: 20px;
 }
@@ -85,6 +99,63 @@ header{
     position: fixed;
     top: 0;
     z-index: 200;
+}
+
+.main_title{
+    flex: 1;
+    margin-left: 20px;
+    text-shadow: 1px 1px 1px gray;
+}
+.date{
+    flex: 1;
+    background:rgb(0,126, 103);
+    border-radius: 20px 0 0 20px ;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    padding: 5px;
+}
+.btnEnviar{
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+    width: auto;
+    height: 40px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btnEnviar:hover{
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    cursor: pointer;
+}
+.btnEnviar:active{
+    background: #1c7430;
+    transform: scale(0.98);
+}
+
+.ic_prefectos {
+    width: 30px;
+    height: 30px;
+    margin-left: -5px;            
+    margin-right: 10px;        
+    cursor: pointer;
+    filter: invert(100%) brightness(100%);
+}
+
+.ic_barra {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    cursor: pointer;
+    filter: invert(0%) brightness(0%);
+}
+
+.pista{
+    background: lightgray;
+    border-radius: 50%;
+    padding: 3px;
 }
 
 #matriculaAuto {
@@ -108,28 +179,39 @@ header{
 }
 
 /*Estilo tabla de registros*/
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-th, td {
-    padding: 0.5rem;
+th {
+    background-color: rgb(0, 126, 103);
+    color: white;
+    word-wrap: break-word; 
     text-align: center;
-    border-collapse: collapse;
-	min-width:150px;
-	max-width:150px;
-	border: 1px solid black;
+    padding: 0.4rem; 
+    border: 1px solid black;
 }
-
 tr:nth-child(even) {
-    background-color: rgb(190, 190, 190);
+    background-color: #f2f2f2;
 }
-.table {
-    border: 1px solid #ccc;
+td {
+    padding: 0.4rem; 
+    text-align: center;
+    word-wrap: break-word; 
+    white-space: normal; 
+    border: 1px solid black;
 }
-
-
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.9rem; 
+    table-layout: auto;
+    overflow-x: scroll;
+    overflow-y: auto;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+thead {
+    position: sticky;
+    top: 0;
+}
 .icon__menu{
     width: 50px;
     height: 100%;
