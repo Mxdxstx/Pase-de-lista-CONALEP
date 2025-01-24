@@ -90,8 +90,8 @@ $fecha = date("d-m-Y");
     <main>
         <h3 class="text-center">
             <form class="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <label class="instrucciones">Por favor, llene los siguientes campos</label> <br/> 
-                <input type="text" name="nombre" class="input_nombre" pattern="[a-zA-Z]+" title="Solo se permiten letras" placeholder=" Ingrese su nombre completo" />
+                <label class="instrucciones">Por favor, llene los siguientes campos</label>
+                <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" pattern="[a-zA-Z]+" title="Solo se permiten letras"/>
                 <input type="text" name="motivo" class="input_motivo" placeholder=" Motivo de visita" />
                 <select name="identificacion" id="id_select" class="id_select">
                     <option value="Identificación">Identificación</option>
@@ -103,29 +103,27 @@ $fecha = date("d-m-Y");
                 <button id="enviar" name="btnEnviar" class="btnEnviar" onclick="validarVisita(event)">
                     Enviar
                 </button> 
-                <div id="customAlert" class="modal">
-                    <div class="modal-content">
-                        <p id="modalMessage"></p>
-                    </div>
-                </div>
             </form>
         </h3>
+        <div id="customAlert" class="modal">
+            <div class="modal-content">
+                <p id="modalMessage"></p>
+            </div>
+        </div>
         <?php
 		if(isset($_POST['btnEnviar'])){
 		    include("../controllers/registrar-visitas.php");}
 		?>
-        <div style="overflow: auto; width: 1120px; height: 600px">
-        <table cellspacing="0" class="tabla_visitas">
-        <?php
-            include('../controllers/cargar-visitas.php')            
-        ?>
+        <div class="table-container">
+            <table cellspacing="0" class="tabla_visitas">
+            <?php
+                include('../controllers/cargar-visitas.php')            
+            ?>
 		</table>
         </div>
     </main>
 
     <script src="../scripts/prefectos/barralateral.js"></script>
     <script src="../scripts/prefectos/horaActual.js"></script>
-    <script src="../scripts/prefectos/validacionesReportes.js"></script>
-
 </body>
 </html>
