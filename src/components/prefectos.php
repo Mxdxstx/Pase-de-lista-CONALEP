@@ -36,7 +36,6 @@ if ($resultado->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pase de Lista</title>
     <link rel="stylesheet" href="../css/estiloPaseLista.css">
-    <link rel="stylesheet" href="../css/prefectos.css">
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
@@ -104,7 +103,6 @@ if ($resultado->num_rows > 0) {
         </div>
         </div>
         <main class="main">
-            
             <form action="prefectos.php" method="post">
                 <div id="contenedor-formulario">
                 <p class="contador">Total de alumnos registrados hoy: <strong><?php echo $totalAlumnos; ?></strong></p>
@@ -121,11 +119,13 @@ if ($resultado->num_rows > 0) {
             if(isset($_POST['btnEnviar'])){
             include("../controllers/registrar-asistencia.php");}
             ?>
-            <table cellspacing="0" class="tabla">
-                <?php
-                include("../controllers/cargar-asistencias.php");
-                ?>
-            </table>
+            <div class="table-container">
+                <table>
+                    <?php
+                    include("../controllers/cargar-asistencias.php");
+                    ?>
+                </table>
+            </div>
         </main>
 	<script src="../scripts/prefectos/barralateral.js"></script>
 </body>
