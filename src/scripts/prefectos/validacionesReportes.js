@@ -25,7 +25,6 @@ function validarFormulario(event) {
     }
 }
 
-//Funciones Modal
 function showAlert() {
     document.getElementById('customAlert').classList.add('show');
 }
@@ -36,4 +35,27 @@ function hideAlert() {
 
 function redirect() {
     window.location = 'visitas.php';
+}
+
+function validarFecha() {
+    const fecha = document.getElementById("fecha");
+    const btnBuscar = document.getElementById("btnBuscar");
+    
+    if (fecha.value) {
+        btnBuscar.disabled = false;
+    } else {
+        btnBuscar.disabled = true;
+    }
+}
+
+function validarFechas() {
+    const fechaInicio = document.getElementById("fechaI");
+    const fechaFin = document.getElementById("fechaD");
+    const btnBuscar = document.getElementById("btnBuscar");
+
+    if (fechaInicio.value && fechaFin.value) {
+        btnBuscar.disabled = false;
+    } else {
+        btnBuscar.disabled = true;
+    }
 }
