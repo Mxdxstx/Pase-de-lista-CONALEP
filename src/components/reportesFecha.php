@@ -104,13 +104,13 @@ $fecha = date("d-m-Y");
         </div>
     <main>
 		<h3 class="text-center">
-			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-					<label for="fecha">Selecciona una fecha:</label>
-					<input type="date" id="fecha" name="fecha">
-					<button type="submit">Buscar</button>
-                    <button type="submit" onclick="recargarTabla()">Recargar Tabla</button>
-                    <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
-			</form>
+        <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <label for="fecha">Selecciona una fecha:</label>
+            <input type="date" id="fecha" name="fecha" oninput="validarFecha()">
+            <button type="submit" id="btnBuscar" disabled>Buscar</button>
+            <button type="submit" onclick="recargarTabla()">Recargar Tabla</button>
+            <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
+        </form>
 		</h3>
         <div class="table-container">
             <table id="datos">
@@ -139,5 +139,6 @@ $fecha = date("d-m-Y");
     </main>	
 	<script src="../scripts/prefectos/barralateral.js"></script>
 	<script src="../scripts/prefectos/exportarPDF.js"></script>
+    <script src="../scripts/prefectos/validacionesReportes.js"></script>
 </body>
 </html
