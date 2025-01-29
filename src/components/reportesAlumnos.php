@@ -94,12 +94,8 @@ $fecha = date("d-m-Y");
 					<h4>Reportes Por Periodo</h4>
                 </div>
             </a>
-
-			<a href="../controllers/controlador-cerrar-sesion.php" >
-
 	
-			<a href="controladores/controlador-cerrar-sesion.php" >
-
+			<a href="../controllers/controlador-cerrar-sesion.php" >
                 <div class="option">
 					<img src="../../public/assets/img/Img_Iconos/right.svg" class="ic_prefectos" title="Cerrar Sesión"></i>
                     <h4>Cerrar Sesion</h4>
