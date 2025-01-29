@@ -338,7 +338,11 @@ td, th{
 .encabezado h3 {
     margin-right: 800px;
 }
-
+#btnBuscar:disabled {
+    background: #9b9b9b;
+    color: #F0F0F0;
+    cursor: not-allowed;
+}
 .encabezado .cerrar-sesion {
     margin-left: 10px;
     color: #000000;
