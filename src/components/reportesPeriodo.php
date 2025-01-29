@@ -8,7 +8,7 @@ include '../controllers/conexion.php';
 $where ="";
 
 if(!empty($_POST)){
-	$valor = trim($_POST['fecha']);
+	$valor = trim($_POST['fechaI']);
 	$valorD = trim($_POST['fechaD']);
 
 	if(!empty($valor) && !empty($valorD)){
@@ -110,10 +110,10 @@ $fecha = date("d-m-Y");
         <h3 class="text-center">
 			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 					<label for="fecha">Fecha Inicio:</label>
-					<input type="date" id="fecha" name="fecha">
+                    <input type="date" id="fechaI" name="fechaI" onchange="validarFechas()">
 					<label for="fecha">Fecha Fin:</label>
-					<input type="date" id="fechaD" name="fechaD">
-					<button type="submit">Buscar</button>
+                    <input type="date" id="fechaD" name="fechaD" onchange="validarFechas()">
+                    <button type="submit" id="btnBuscar" disabled>Buscar</button>
 					<button type="submit" onclick="recargarTabla()">Recargar Tabla</button>
 					<button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
 			</form>
@@ -145,5 +145,6 @@ $fecha = date("d-m-Y");
     </main>
 	<script src="../scripts/prefectos/barralateral.js"></script>
 	<script src="../scripts/prefectos/exportarPDF.js"></script>
+    <script src="../scripts/prefectos/validacionesReportes.js"></script>
 </body>
 </html>
