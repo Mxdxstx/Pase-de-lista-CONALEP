@@ -94,9 +94,9 @@ $fecha = date("d-m-Y");
                 <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" pattern="[a-zA-Z]+" title="Solo se permiten letras"/>
                 <input type="text" name="motivo" class="input_motivo" placeholder=" Motivo de visita" />
                 <select name="identificacion" id="id_select" class="id_select">
-                    <option value="Identificación">Identificación</option>
+                    <option value="Gafete">Gafete</option>
                     <option value="INE">INE</option>
-                    <option value="Credencial">Credencial</option>
+                    <option value="Credencial Escolar">Credencial Escolar</option>
                     <option value="Licencia de conducir">Licencia de conducir</option>
                     <option value="Otro">Otro</option>
                 </select>
