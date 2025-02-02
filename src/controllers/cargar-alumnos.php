@@ -17,10 +17,9 @@ ORDER BY primer_apellido";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) { 
-    echo "<h2>Alumnos presentes</h2>";
-    echo "<button id='btnExportar' class='btn btn-success'>
-            <i class='fas fa-file-excel'></i> Exportar Datos a Excel
-        </button> ";
+    echo "<div align='center'>
+            <h2>Alumnos Presentes</h2>
+        </div>";
     echo "<table id='datos' class='table-container'>";
     echo "<tr class='table_header'>
                 <td>Matricula</td>
@@ -41,7 +40,9 @@ if ($resultado->num_rows > 0) {
     }
     echo "</table>";
 } else {
-    echo "No se encontraron resultados.";
+    echo "<div align='center'>
+            <p>No se encontraron registros</p>
+        </div>";
 }
 
 $conexion->close();
