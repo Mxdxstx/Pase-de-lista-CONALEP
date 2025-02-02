@@ -13,7 +13,13 @@ if (isset($_POST['btnEnviar'])) {
         if (mysqli_num_rows($mtrcons) > 0) {
             $sql = "INSERT INTO asistencias (matricula, fecha_hora) VALUES ('$codigo', '$fechaHoraActual')";
             if ($conexion->query($sql) === TRUE) {
-                header("Location: " . $_SERVER['PHP_SELF']);   
+                echo "<script>
+                        window.onload = function() {
+                            document.getElementById('modalMessage').innerText = 'Asistencia Registrada.';
+                            document.getElementById('customAlert').classList.add('show');
+                            setTimeout(() => { window.location = 'prefectos.php'; }, 1000);
+                        };
+                    </script>";
                 exit();
             } else {
                 echo "<p class='bad'>Error al insertar el registro: " . $conexion->error . "</p>";
