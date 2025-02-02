@@ -114,7 +114,11 @@ if ($resultado->num_rows > 0) {
                     <button type="submit" name="btnEnviar" class="btnEnviar">Enviar</button>
                 </div> <br>
             </form>
-            <p id="mensajeAlerta"></p>
+            <div id="customAlert" class="modal">
+                <div class="modal-content">
+                    <p id="modalMessage"></p>
+                </div>
+            </div>
             <?php
             if(isset($_POST['btnEnviar'])){
             include("../controllers/registrar-asistencia.php");}
