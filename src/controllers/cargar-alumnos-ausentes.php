@@ -20,31 +20,35 @@ ORDER BY primer_apellido;";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) { 
-    echo "<h2>Alumnos ausentes  </h2>";    
-    echo "<button id='btnExportar' class='btn btn-success'>
-            <i class='fas fa-file-excel'></i> Exportar Datos a Excel
-        </button> ";
-    echo "<table id='datos' class='table-container'>";
-    echo "<tr class='table_header'>
-                <td>Matricula</td>
-                <td>P. Apellido</td>
-                <td>Nombre(s)</td>
-                <td>Grupo</td>
-                <td>Fecha</td>
-            </tr>";
-    while ($fila = $resultado->fetch_assoc()) {
-        
-        echo "<tr class = 'ausentes'>";
-        echo "<td>" . $fila["matricula"] . "</td>";
-        echo "<td>" . $fila["primer_apellido"] . "</td>";
-        echo "<td>" . $fila["nombres"] . "</td>";
-        echo "<td>" . $fila["grupo"] . "</td>";
-        echo "<td>Ausencia</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-} else {
-    echo "No se encontraron resultados.";
+    echo "<div align='center'>
+            <h2>Alumnos Ausentes</h2>
+        </div>";
+    echo "<table id='datos' class='table-container'>
+            <thead>
+                <tr class='table_header'>
+                    <th>Matricula</th>
+                    <th>P. Apellido</th>
+                    <th>Nombre(s)</th>
+                    <th>Grupo</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+        <tbody>";
+
+while ($fila = $resultado->fetch_assoc()) {
+    echo "<tr class='ausentes'>";
+    echo "<td>" . $fila["matricula"] . "</td>";
+    echo "<td>" . $fila["primer_apellido"] . "</td>";
+    echo "<td>" . $fila["nombres"] . "</td>";
+    echo "<td>" . $fila["grupo"] . "</td>";
+    echo "<td>Ausencia</td>";
+    echo "</tr>";
+}
+
+echo "</tbody></table>";
+    echo "<div align='center'>
+            <p>No se encontraron registros</p>
+        </div>";
 }
 
 $conexion->close();
