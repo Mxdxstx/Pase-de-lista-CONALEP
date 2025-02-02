@@ -1,111 +1,157 @@
-body{
+/* Estilos generales */
+body {
     background: lightgray;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-header{
-    margin:10px;
+
+/* Header */
+header {
+    margin: 10px;
     display: flex;
+    align-items: center;
     height: 20vh;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
-.img img{
-  width: 200px;
-	height: auto;
+
+.img img {
+    width: 150px;
+    height: auto;
 }
-.title_text{
-    flex:1;
+
+.title_text {
+    flex: 1;
     text-align: center;
     color: rgb(0, 126, 103);
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
-.title_text h1{
-  margin-bottom: -30;
+
+.title_text h1 {
+    margin-bottom: 0;
+    font-size: 2rem;
 }
-.salir{
-    margin-top:25px;
-    float: right;
+
+.salir {
     text-align: center;
 }
-.btn_salir{
+
+.btn_salir {
     background-color: rgb(0, 126, 103);
-    color:white;
-    padding:20px 40px 20px 40px;
+    color: white;
+    padding: 10px 20px;
     text-decoration: none;
-    border-radius: 5px;  
-}
-.main{
-  display: flex;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-.dropdowns{
-    flex:1;
-    background:rgb(0, 126, 103);
-    color:white;
+.btn_salir:hover {
+    background-color: rgb(0, 95, 78);
+}
+
+/* Contenido principal */
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.dropdowns {
+    flex: 1;
+    background: rgb(0, 126, 103);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    max-width: 300px;
+}
+
+.semestres, .grupos, .asistencia {
+    margin-bottom: 20px;
+}
+
+#semestre, #grupo {
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+/* Tabla */
+.grid {
+    flex: 3;
+    background-color: white;
     padding: 15px;
-    width:25%;
-    height: 65vh;
-    font-size: 20px;
-}
-.semestres{
-    padding-bottom:30px;
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.grupos{
-    padding-bottom:30px;
-}
-#semestre, #grupo{
-  width: 100%;
-  height: 25px;
-  border-radius: 5px;
-  lighting-color: rgb(0, 126, 103);
-}
-.asistencia{
-    padding-bottom:30px;
+.table-container {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.grid{
-  background-color: white;
-  width:75%;
-  margin-left:2%;
-  padding: 10px;
-  overflow: auto;
+.table-container th, .table-container td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
 }
 
-.grid, .dropdowns{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  border-radius: 10px;
+.table-container th {
+    background: rgb(0, 126, 103);
+    color: white;
+    font-weight: bold;
 }
 
-th{
-  background:rgb(0, 126, 103);
-  color:white;
-  padding: 5px;
-  border: 1px solid black ;
-}
-td{
-	padding: 10px 20px;
-	max-width: 200px;
-	min-width: 200px;
-	background: #a6eb87;
-	border: 1px solid black ;
+.table-container tr:nth-child(even) {
+    background: #f2f2f2;
 }
 
+.ausentes td {
+    background: salmon;
+}
 
-/* The switch - the box around the slider */
+/* Botones */
+.btn-success {
+    padding: 8px 15px;
+    margin: 10px 5px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Switch */
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
+}
+
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  /* The slider */
-  .slider {
+}
+
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -113,11 +159,11 @@ td{
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  .slider:before {
+    border-radius: 34px;
+}
+
+.slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -125,71 +171,58 @@ td{
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color:rgb(221, 128, 34);
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px rgb(221, 128, 34);
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
     border-radius: 50%;
-  }
-
-.ausentes td{
-  background: salmon;
 }
 
-  .table-container {
-    border-collapse: collapse;
-    width: 100%;
+input:checked + .slider {
+    background-color: rgb(221, 128, 34);
 }
 
-.table-container th, .table-container td {
-    border: 1px solid #000000;
-    padding: 8px;
-    text-align: left;
+input:checked + .slider:before {
+    transform: translateX(26px);
 }
 
-.table-container th {
-    background-color: #f2f2f2;
+/* Responsividad */
+@media (max-width: 1024px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .dropdowns {
+        width: 100%;
+        max-width: none;
+    }
+    .grid {
+        width: 100%;
+    }
 }
 
-.table-container tr:nth-child(even) {
-    background-color: #f2f2f2;
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    .img img {
+        width: 120px;
+    }
+    .title_text h1 {
+        font-size: 1.5rem;
+    }
+    .btn_salir {
+        padding: 8px 16px;
+    }
 }
 
-.table_header td{
-  background: rgb(0, 126, 103);
-  color:white;
-  font-weight: bold;
-}
-.btn-success {
-  padding: 8px 15px;
-  margin: 10px 5px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.btn-success:hover {
-  background-color: #218838;
+@media (max-width: 480px) {
+    .btn_salir, .btn-success {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    .table-container th, .table-container td {
+        padding: 5px;
+        font-size: 12px;
+    }
 }
