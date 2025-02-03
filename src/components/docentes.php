@@ -14,6 +14,8 @@ if (empty($_SESSION["id"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/docentes.css">
     <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../scripts/docentes/jspdf.umd.min.js"></script>
+    <script src="../scripts/docentes/jspdf.plugin.autotable.min.js"></script>
     <title>Docentes y Orientación</title>
 </head>
 
@@ -26,7 +28,7 @@ if (empty($_SESSION["id"])) {
 
         </div>
         <div class="title_text">
-            <h1>Docentes y Orientación</h1><br>
+            <h1>Docentes y Orientación</h1>
             <h2>Asistencia</h2>
         </div>
         <div class="salir">
@@ -62,6 +64,8 @@ if (empty($_SESSION["id"])) {
                     <span class="slider round"></span>
                 </label>
             </div>
+            <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
+
         </div>
 
         <div class="grid">
@@ -100,8 +104,7 @@ if (empty($_SESSION["id"])) {
                 </script>
             </div>
         </div>
+        <script src="../scripts/docentes/exportarPDF.js"></script>
     </section>
-
 </body>
-
 </html>

@@ -4,7 +4,7 @@
 include("conexion.php");
 
 $grupoSeleccionado = $_GET["grupo"];
-date_default_timezone_set('America/Chihuahua');
+date_default_timezone_set('America/Mazatlan');
 $fechaHoraActual = date("Y-m-d");
 
 $sql = "SELECT alumnos.matricula, primer_apellido, nombres, asistencias.fecha_hora AS fecha, grupos.clave_grupo AS grupo
@@ -17,7 +17,10 @@ ORDER BY primer_apellido";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) { 
-    echo "<table class='table-container'>";
+    echo "<div align='center'>
+            <h2>Alumnos Presentes</h2>
+        </div>";
+    echo "<table id='datos' class='table-container'>";
     echo "<tr class='table_header'>
                 <td>Matricula</td>
                 <td>P. Apellido</td>
@@ -37,7 +40,9 @@ if ($resultado->num_rows > 0) {
     }
     echo "</table>";
 } else {
-    echo "No se encontraron resultados.";
+    echo "<div align='center'>
+            <p>No se encontraron registros</p>
+        </div>";
 }
 
 $conexion->close();

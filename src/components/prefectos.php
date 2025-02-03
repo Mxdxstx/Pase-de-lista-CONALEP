@@ -4,11 +4,29 @@ if (empty($_SESSION["id"])) {
 	header("location: login.php");
 }
 include '../controllers/conexion.php';
+
 $consulta = "SELECT * FROM usuarios";
 $guardar = $conexion->query($consulta);
-date_default_timezone_set('America/Chihuahua');
-
+date_default_timezone_set('America/Mazatlan');
 $fecha = date("d-m-Y");
+
+$sql = "
+SELECT 
+    COUNT(asistencias.matricula) AS total_alumnos
+FROM asistencias
+INNER JOIN alumnos ON asistencias.matricula = alumnos.matricula
+INNER JOIN grupos ON alumnos.id_grupo = grupos.id_grupo
+WHERE DATE(fecha_hora) = CURDATE();
+";
+
+$resultado = $conexion->query($sql);
+
+$totalAlumnos = 0;
+
+if ($resultado->num_rows > 0) {
+    $fila = $resultado->fetch_assoc();
+    $totalAlumnos = $fila['total_alumnos'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +36,7 @@ $fecha = date("d-m-Y");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pase de Lista</title>
     <link rel="stylesheet" href="../css/estiloPaseLista.css">
-    <link rel="stylesheet" href="../css/prefectos.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body id="body">
@@ -85,26 +103,34 @@ $fecha = date("d-m-Y");
         </div>
         </div>
         <main class="main">
-            <form class="tabla" action="prefectos.php" method="post">
+            <form action="prefectos.php" method="post">
                 <div id="contenedor-formulario">
-                    <textarea placeholder="Matricula" name="matricula" id="resultado"></textarea><br>			
+                <p class="contador">Total de alumnos registrados hoy: <strong><?php echo $totalAlumnos; ?></strong></p>
+  
+                <h2 for="codigo">Escanea o Captura el código de barras</h2><br>
+                <input type="text" id="matriculaAuto" name="matriculaAuto" autofocus>
+                <!-- Agregar la seccion de comentarios-->
+                <div class="contenedor-principal">
                     <button type="submit" name="btnEnviar" class="btnEnviar">Enviar</button>
-                </div>
+                </div> <br>
             </form>
-            <p id="resultado"></p>
+            <div id="customAlert" class="modal">
+                <div class="modal-content">
+                    <p id="modalMessage"></p>
+                </div>
+            </div>
             <?php
             if(isset($_POST['btnEnviar'])){
             include("../controllers/registrar-asistencia.php");}
             ?>
-            <table cellspacing="0" class="tabla">
-                <?php
-                include("../controllers/cargar-asistencias.php");
-                ?>
-            </table>
+            <div class="table-container">
+                <table>
+                    <?php
+                    include("../controllers/cargar-asistencias.php");
+                    ?>
+                </table>
+            </div>
         </main>
 	<script src="../scripts/prefectos/barralateral.js"></script>
-    <script src="../scripts/prefectos/registrarAsistencia.js"> </script>
-    <script src="../scripts/prefectos/enterRegistrarAsistencia.js"> </script>
-
 </body>
 </html>

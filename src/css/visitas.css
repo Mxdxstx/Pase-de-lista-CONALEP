@@ -12,6 +12,13 @@ td, th{
     min-width: 250px;
     padding: 10px;
 }
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;              
+}
 .main{
     margin: 1rem;
 }
@@ -25,10 +32,22 @@ td, th{
 
 .input_nombre, .input_motivo, .id_select{
     width: 250px;
-    margin-bottom : 1rem; ;
-    height: 32px;
-    border:1px solid lightgray;
+    height: 40px;
+    margin-bottom: 1rem;
+    padding: 0 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
+
+.input_nombre:focus, .input_motivo:focus, .id_select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgb(0,126, 103);
+    outline: none;
+}
+
 header{
     width: 100%;
     height: 80px;
@@ -60,17 +79,23 @@ header{
 
 .btnEnviar{
     margin-bottom: 1rem;
-    background: #28a745;
+    background: linear-gradient(45deg, #28a745, #218838);
     color: white;
-    width: 100px;
-    height: 35px;
-    border: 1px solid #28a745;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
 }
 .btnEnviar:hover{
+    background: linear-gradient(45deg, #218838, #1e7e34);
     cursor: pointer;
 }
 .btnEnviar:active{
-    background-color: rgb(3, 148, 3);
+    background: #1c7430;
+    transform: scale(0.98);
 }
 /*Ocultar scroll para chrome, safari y opera*/
 .menu__side::-webkit-scrollbar{
@@ -82,7 +107,6 @@ header{
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
 
 .name__page{
     padding: 20px 25px;
@@ -143,6 +167,33 @@ a.selected{
     top: 10%;
     left: -30px;
 }
+/*Modal*/
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex; 
+}
+
+.modal-content {
+    background-color: rgb(0,126, 103);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-weight: bold; 
+    font-size: 18px; 
+}
 
 /*Clases para usar en JavaScript*/
 
@@ -154,7 +205,6 @@ a.selected{
     width: 250px;
 }
 
-
 @media screen and (max-width: 760px){
     .body_move{
         margin-left: 0px;
@@ -165,11 +215,3 @@ a.selected{
         left: -80px;
     }
 }
-
-thead {
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 1;              
-}
-

@@ -4,7 +4,7 @@
 include("conexion.php");
 
 $grupoSeleccionado = $_GET["grupo"];
-date_default_timezone_set('America/Chihuahua');
+date_default_timezone_set('America/Mazatlan');
 $fechaHoraActual = date("Y-m-d");
 
 $sql = "SELECT alumnos.matricula, primer_apellido, nombres, asistencias.fecha_hora 
@@ -20,27 +20,35 @@ ORDER BY primer_apellido;";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) { 
-    echo "<table class='table-container'>";
-    echo "<tr class='table_header'>
-                <td>Matricula</td>
-                <td>P. Apellido</td>
-                <td>Nombre(s)</td>
-                <td>Grupo</td>
-                <td>Fecha</td>
-            </tr>";
-    while ($fila = $resultado->fetch_assoc()) {
-        
-        echo "<tr class = 'ausentes'>";
-        echo "<td>" . $fila["matricula"] . "</td>";
-        echo "<td>" . $fila["primer_apellido"] . "</td>";
-        echo "<td>" . $fila["nombres"] . "</td>";
-        echo "<td>" . $fila["grupo"] . "</td>";
-        echo "<td>" . $fila["fecha"] . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-} else {
-    echo "No se encontraron resultados.";
+    echo "<div align='center'>
+            <h2>Alumnos Ausentes</h2>
+        </div>";
+    echo "<table id='datos' class='table-container'>
+            <thead>
+                <tr class='table_header'>
+                    <th>Matricula</th>
+                    <th>P. Apellido</th>
+                    <th>Nombre(s)</th>
+                    <th>Grupo</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+        <tbody>";
+
+while ($fila = $resultado->fetch_assoc()) {
+    echo "<tr class='ausentes'>";
+    echo "<td>" . $fila["matricula"] . "</td>";
+    echo "<td>" . $fila["primer_apellido"] . "</td>";
+    echo "<td>" . $fila["nombres"] . "</td>";
+    echo "<td>" . $fila["grupo"] . "</td>";
+    echo "<td>Ausencia</td>";
+    echo "</tr>";
+}
+
+echo "</tbody></table>";
+    echo "<div align='center'>
+            <p>No se encontraron registros</p>
+        </div>";
 }
 
 $conexion->close();

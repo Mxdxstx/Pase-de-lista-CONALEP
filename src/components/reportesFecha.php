@@ -17,7 +17,7 @@ if(!empty($_POST)){
 $consulta = "SELECT asistencias.matricula, alumnos.primer_apellido, alumnos.segundo_apellido, alumnos.nombres, fecha_hora FROM asistencias INNER JOIN alumnos ON asistencias.matricula = alumnos.matricula $where";
 
 $guardar = $conexion->query($consulta);
-date_default_timezone_set('America/Chihuahua');
+date_default_timezone_set('America/Mazatlan');
 $fecha = date("d-m-Y");
 
 ?>
@@ -31,11 +31,9 @@ $fecha = date("d-m-Y");
     <title>Prefectos</title>
 
 	<link rel="stylesheet" href="../css/reportes.css">	
-	<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
-    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
-    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"></script>
+    <script src="../scripts/prefectos/jspdf.umd.min.js"></script>
+    <script src="../scripts/prefectos/jspdf.plugin.autotable.min.js"></script>
+
 </head>
 
 <body id="body">
@@ -106,39 +104,41 @@ $fecha = date("d-m-Y");
         </div>
     <main>
 		<h3 class="text-center">
-			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-					<label for="fecha">Selecciona una fecha:</label>
-					<input type="date" id="fecha" name="fecha">
-					<button type="submit">Buscar</button>
-					<button id="btnExportar" class="btn btn-success">
-					    <i class="fas fa-file-excel"></i> Exportar Datos a Excel
-					</button>
-			</form>
+        <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <label for="fecha">Selecciona una fecha:</label>
+            <input type="date" id="fecha" name="fecha" oninput="validarFecha()">
+            <button type="submit" id="btnBuscar" disabled>Buscar</button>
+            <button type="submit" onclick="recargarTabla()">Recargar Tabla</button>
+            <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
+        </form>
 		</h3>
-			<div style="overflow: auto; width: 1120px; height: 600px">
-				<table id="datos">
-					<thead class="text-muted">
-						<th class="text-center">Matricula</th>
-						<th class="text-center">Nombre(s)</th>
-						<th class="text-center">Primer Apellido</th>
-						<th class="text-center">Segundo Apellido</th>
-						<th class="text-center">Fecha y Hora de Ingreso</th>
-				</thead>
-					<tbody>
-						<?php while($row = $guardar->fetch_assoc()){?>
-							<tr>
-							<td><?php echo $row['matricula']; ?></td>
-							<td><?php echo $row['nombres']; ?></td>
-							<td><?php echo $row['primer_apellido']; ?></td>
-							<td><?php echo $row['segundo_apellido']; ?></td>		
-							<td><?php echo $row['fecha_hora']; ?></td>
-							</tr>
-						<?php }?>
-					</tbody>
-				</table>
-			</div>					
+        <div class="table-container">
+            <table id="datos">
+                <thead class="text-muted">
+                <tr>
+                    <th class="text-center">Matricula</th>
+                    <th class="text-center">Nombre(s)</th>
+                    <th class="text-center">Primer Apellido</th>
+                    <th class="text-center">Segundo Apellido</th>
+                    <th class="text-center">Fecha y Hora de Ingreso</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php while($row = $guardar->fetch_assoc()){?>
+                    <tr>
+                    <td><?php echo $row['matricula']; ?></td>
+                    <td><?php echo $row['nombres']; ?></td>
+                    <td><?php echo $row['primer_apellido']; ?></td>
+                    <td><?php echo $row['segundo_apellido']; ?></td>
+                    <td><?php echo $row['fecha_hora']; ?></td>
+                    </tr>
+                <?php }?>
+                </tbody>
+            </table>
+        </div>			
     </main>	
 	<script src="../scripts/prefectos/barralateral.js"></script>
-	<script src="../scripts/prefectos/excel.js"></script>
+	<script src="../scripts/prefectos/exportarPDF.js"></script>
+    <script src="../scripts/prefectos/validacionesReportes.js"></script>
 </body>
 </html
