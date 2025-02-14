@@ -1,9 +1,5 @@
 <?php
     include("../controllers/conexion.php");
-    if(isset($_SESSION['error'])){
-        echo '<div class="alert">' . $_SESSION['error'] . '</div>';
-        unset($_SESSION['error']); 
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
