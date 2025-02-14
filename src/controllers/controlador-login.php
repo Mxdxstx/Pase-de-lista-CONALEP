@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("conexion.php");
 
 if(!empty($_POST['btningresar'])){
     if (!empty($_POST["usuario"])and !empty($_POST["password"])) {
@@ -20,12 +21,19 @@ if(!empty($_POST['btningresar'])){
         }
           
        }else{
-        echo '<div class="alert" >¡Credenciales incorrectas!</div>';
-       }
+        $_SESSION['error'] = '¡Credenciales incorrectas!';
+        header("Location: login.php");
+        exit;
+    }
 
     } else {
-        echo '<div class="alert" >¡Hay campos vacíos!</div>';
+        $_SESSION['error'] = '¡Hay campos vacíos!';
+        header("Location: login.php");
+        exit;
     } 
 }
-
+if (isset($_SESSION['error'])) {
+    echo '<div class="alert">' . $_SESSION['error'] . '</div>';
+    unset($_SESSION['error']); 
+}
 ?>
