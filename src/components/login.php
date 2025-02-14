@@ -1,6 +1,9 @@
 <?php
-            include("../controllers/conexion.php");
-            include("../controllers/controlador-login.php");
+    include("../controllers/conexion.php");
+    if(isset($_SESSION['error'])){
+        echo '<div class="alert">' . $_SESSION['error'] . '</div>';
+        unset($_SESSION['error']); 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +32,7 @@
                 <div><input class="txt" type="text" name="usuario" placeholder="Nombre de usuario"></div>
                 <div><input class="txt" type="password" name="password" placeholder="Contraseña"></div>
                 <div><input class="btn" type="submit" value="Iniciar sesión" name="btningresar"></div>
+                <?php include("../controllers/controlador-login.php");?>
             </div>
         </form>
 
