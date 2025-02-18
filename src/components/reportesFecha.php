@@ -4,21 +4,7 @@ if(empty($_SESSION["id"])) {
     header("location: login.php");
 }
 include '../controllers/conexion.php';
-
-$where ="";
-
-if(!empty($_POST)){
-	$valor = $_POST['fecha'];
-	if(!empty($valor)){
-		$where = "WHERE asistencias.fecha_hora LIKE '%$valor%'";
-	}
-}
-
-$consulta = "SELECT asistencias.matricula, alumnos.primer_apellido, alumnos.segundo_apellido, alumnos.nombres, fecha_hora FROM asistencias INNER JOIN alumnos ON asistencias.matricula = alumnos.matricula $where";
-
-$guardar = $conexion->query($consulta);
-date_default_timezone_set('America/Mazatlan');
-$fecha = date("d-m-Y");
+include '../controllers/consultaReportesFecha.php';
 
 ?>
 
@@ -106,9 +92,8 @@ $fecha = date("d-m-Y");
 		<h3 class="text-center">
         <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <label for="fecha">Selecciona una fecha:</label>
-            <input type="date" id="fecha" name="fecha" oninput="validarFecha()">
+            <input type="date" id="fecha" name="fecha" oninput="validarFecha()" value="<?php echo isset($valor) ? htmlspecialchars($valor) : ''; ?>">
             <button type="submit" id="btnBuscar" disabled>Buscar</button>
-            <button type="submit" onclick="recargarTabla()">Recargar Tabla</button>
             <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
         </form>
 		</h3>
