@@ -4,25 +4,8 @@ if(empty($_SESSION["id"])) {
     header("location: login.php");
 }
 include '../controllers/conexion.php';
+include '../controllers/consultaReportesPeriodo.php';
 
-$where ="";
-
-if(!empty($_POST)){
-	$valor = trim($_POST['fechaI']);
-	$valorD = trim($_POST['fechaD']);
-
-	if(!empty($valor) && !empty($valorD)){
-		$fechaInicio = $valor . ' 00:00:00';
-		$fechaFin = $valorD . ' 23:59:59';
-		$where = "WHERE asistencias.fecha_hora BETWEEN '$fechaInicio' AND '$fechaFin'";
-	}
-}
-
-$consulta = "SELECT asistencias.matricula, alumnos.primer_apellido, alumnos.segundo_apellido, alumnos.nombres, fecha_hora FROM asistencias INNER JOIN alumnos ON asistencias.matricula = alumnos.matricula $where";
-$guardar = $conexion->query($consulta);
-date_default_timezone_set('America/Mazatlan');
-
-$fecha = date("d-m-Y");
 ?>
 
 <!DOCTYPE html>
@@ -108,17 +91,16 @@ $fecha = date("d-m-Y");
         </div>
     <main>
         <h3 class="text-center">
-			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-					<label for="fecha">Fecha Inicio:</label>
-                    <input type="date" id="fechaI" name="fechaI" onchange="validarFechas()">
-					<label for="fecha">Fecha Fin:</label>
-                    <input type="date" id="fechaD" name="fechaD" onchange="validarFechas()">
-                    <button type="submit" id="btnBuscar" disabled>Buscar</button>
-					<button type="submit" onclick="recargarTabla()">Recargar Tabla</button>
-					<button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
-			</form>
+        <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <label for="fechaI">Fecha Inicio:</label>
+            <input type="date" id="fechaI" name="fechaI" onchange="validarFechas()" value="<?php echo isset($_SESSION['fechaI']) ? htmlspecialchars($_SESSION['fechaI']) : ''; ?>">
+            <label for="fechaD">Fecha Fin:</label>
+            <input type="date" id="fechaD" name="fechaD" onchange="validarFechas()" value="<?php echo isset($_SESSION['fechaD']) ? htmlspecialchars($_SESSION['fechaD']) : ''; ?>">
+            <button type="submit" id="btnBuscar" disabled>Buscar</button>
+            <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
+        </form>
 		</h3>
-		<div class="table-container">
+		<div class="table-container">|
             <table id="datos">
                 <thead class="text-muted">
                 <tr>
