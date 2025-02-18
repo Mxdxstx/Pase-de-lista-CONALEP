@@ -24,11 +24,16 @@ header {
     height: auto;
 }
 
+
+
 .title_text {
     flex: 1;
     text-align: center;
-    color: rgb(0, 126, 103);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #28a745, #218838);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
 }
 
 .title_text h1 {
@@ -41,19 +46,22 @@ header {
 }
 
 .btn_salir {
-    background-color: rgb(0, 126, 103);
+    background: linear-gradient(45deg, #28a745, #218838);
     color: white;
     padding: 10px 20px;
     text-decoration: none;
-    border-radius: 5px;
     font-size: 16px;
     border: none;
     cursor: pointer;
-    transition: background 0.3s;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+
 }
 
 .btn_salir:hover {
-    background-color: rgb(0, 95, 78);
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    cursor: pointer;
 }
 
 /* Contenido principal */
@@ -123,18 +131,21 @@ header {
 
 /* Botones */
 .btn-success {
-    padding: 8px 15px;
-    margin: 10px 5px;
-    background-color: #28a745;
+    background: linear-gradient(45deg, #28a745, #218838);
     color: white;
+    width: auto;
+    height: 40px;
+    padding: 0 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .btn-success:hover {
-    background-color: #218838;
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    cursor: pointer;
 }
 
 /* Switch */
