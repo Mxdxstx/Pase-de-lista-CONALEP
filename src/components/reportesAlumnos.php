@@ -4,21 +4,7 @@ if(empty($_SESSION["id"])) {
     header("location: login.php");
 }
 include '../controllers/conexion.php';
-$where ="";
-if(!empty($_POST)){
-    $valor = trim($_POST['buscar']);
-	if(!empty($valor)){
-		$where = "WHERE alumnos.matricula LIKE '%$valor%'";
-	}
-}
-$consulta = "SELECT asistencias.matricula, alumnos.primer_apellido, alumnos.segundo_apellido, alumnos.nombres, fecha_hora FROM asistencias INNER JOIN alumnos ON asistencias.matricula = alumnos.matricula $where";
-$guardar = $conexion->query($consulta);
-date_default_timezone_set('America/Mazatlan');
-
-
-$fecha = date("d-m-Y");
-
-
+include '../controllers/consultaReportesAlumnos.php';
 ?>
 
 <!DOCTYPE html>
@@ -105,13 +91,12 @@ $fecha = date("d-m-Y");
         </div>
     <main>
         <h3 class="text-center">
-			<form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="formulario-busqueda">
-				<label for="buscar">Buscar Matricula de Alumno: </label>
-				<input type="text" name="buscar" class="form_control" placeholder=""/>
-                <button type="submit" id="buscar" onclick="validarFormulario(event)">Buscar</button>
-                <button type="submit" onclick="recargarTabla()">Recargar Tabla</button>
-				<button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button> 
-			</form>
+        <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="formulario-busqueda">
+            <label for="buscar">Buscar Matricula de Alumno: </label>
+            <input type="text" name="buscar" class="form_control" placeholder="" value="<?php echo isset($valor) ? htmlspecialchars($valor) : ''; ?>"/>
+            <button type="submit" id="buscar" onclick="validarFormulario(event)">Buscar</button>
+            <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button> 
+        </form>
 		</h3>
         <div class="table-container">
             <table id="datos">
