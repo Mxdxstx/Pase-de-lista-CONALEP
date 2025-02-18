@@ -100,7 +100,7 @@ include '../controllers/consultaReportesPeriodo.php';
             <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
         </form>
 		</h3>
-		<div class="table-container">|
+		<div class="table-container">
             <table id="datos">
                 <thead class="text-muted">
                 <tr>
