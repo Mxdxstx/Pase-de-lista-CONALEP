@@ -14,7 +14,6 @@
     <div class="login-container">
         <header>
             <div>
-                <p>Versión beta</p>
                 <img src="../../public/assets/img/LogoConalepJuarezI.png" alt="Logo plantel conalep Juarez I"/>
             </div>
         </header>
