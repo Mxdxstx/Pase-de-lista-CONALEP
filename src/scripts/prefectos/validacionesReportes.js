@@ -19,10 +19,6 @@ function validarFormulario(event) {
     document.querySelector('input[name="buscar"]').addEventListener('input', function (event) {
         this.value = this.value.replace(/[^0-9]/g, '');
     });
-    
-    function recargarTabla() {
-        location.reload(); 
-    }
 }
 
 function validarFecha() {
@@ -47,16 +43,3 @@ function validarFechas() {
         btnBuscar.disabled = true;
     }
 }
-
-/* Validaciones 
-function showAlert() {
-    document.getElementById('customAlert').classList.add('show');
-}
-
-function hideAlert() {
-    document.getElementById('customAlert').classList.remove('show');
-}
-
-function redirect() {
-    window.location = 'visitas.php';
-}*/
