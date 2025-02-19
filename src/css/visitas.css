@@ -79,7 +79,7 @@ header{
 
 .btnEnviar{
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, #28a745, #218838);
+    background-color: rgb(0, 126, 103);
     color: white;
     width: 120px;
     height: 40px;
@@ -90,11 +90,11 @@ header{
     cursor: pointer;
 }
 .btnEnviar:hover{
-    background: linear-gradient(45deg, #218838, #1e7e34);
+    background: linear-gradient(45deg, #008060, #006b50);
     cursor: pointer;
 }
 .btnEnviar:active{
-    background: #1c7430;
+    background: #005e48;
     transform: scale(0.98);
 }
 /*Ocultar scroll para chrome, safari y opera*/
@@ -215,3 +215,4 @@ a.selected{
         left: -80px;
     }
 }
+
