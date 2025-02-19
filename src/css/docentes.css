@@ -148,6 +148,10 @@ header {
     background: salmon;
 }
 
+.presentes td {
+    background: rgb(5, 231, 5);
+}
+
 .dropdowns {
     flex: 1;
     background: white;
