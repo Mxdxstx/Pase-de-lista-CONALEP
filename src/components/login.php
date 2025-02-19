@@ -19,15 +19,15 @@
         </header>
         <form method="post" action="">
        
-            <h1>¡Bienvendido(a)!</h1>
+            <h1>¡Bienvenido(a)!</h1>
             
             <h2>Inicio de sesión</h2>
             
             <div class="inputs">
                 <div><input class="txt" type="text" name="usuario" placeholder="Nombre de usuario"></div>
                 <div><input class="txt" type="password" name="password" placeholder="Contraseña"></div>
-                <div><input class="btn" type="submit" value="Iniciar sesión" name="btningresar"></div>
                 <?php include("../controllers/controlador-login.php");?>
+                <div><input class="btn" type="submit" value="Iniciar sesión" name="btningresar"></div>
             </div>
         </form>
 
