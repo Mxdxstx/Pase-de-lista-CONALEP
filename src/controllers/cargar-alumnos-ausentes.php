@@ -46,9 +46,6 @@ while ($fila = $resultado->fetch_assoc()) {
 }
 
 echo "</tbody></table>";
-    echo "<div align='center'>
-            <p>No se encontraron registros</p>
-        </div>";
 }
 
 $conexion->close();
