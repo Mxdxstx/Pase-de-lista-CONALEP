@@ -30,7 +30,7 @@ if ($resultado->num_rows > 0) {
                     <th>P. Apellido</th>
                     <th>Nombre(s)</th>
                     <th>Grupo</th>
-                    <th>Fecha</th>
+                    <th>Estatus</th>
                 </tr>
             </thead>
         <tbody>";
