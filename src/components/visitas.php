@@ -91,7 +91,7 @@ $fecha = date("d-m-Y");
         <h3 class="text-center">
             <form class="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <label class="instrucciones">Por favor, llene los siguientes campos</label>
-                <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" pattern="[a-zA-Z]+" title="Solo se permiten letras"/>
+                <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" pattern="[a-zA-Z\s]+" title="Solo se permiten letras"/>
                 <input type="text" name="motivo" class="input_motivo" placeholder=" Motivo de visita" />
                 <select name="identificacion" id="id_select" class="id_select">
                     <option value="Gafete">Gafete</option>
@@ -102,7 +102,7 @@ $fecha = date("d-m-Y");
                 </select>
                 <button id="enviar" name="btnEnviar" class="btnEnviar" onclick="validarVisita(event)">
                     Enviar
-                </button> 
+                </button>
             </form>
         </h3>
         <div id="customAlert" class="modal">
@@ -116,10 +116,10 @@ $fecha = date("d-m-Y");
 		?>
         <div class="table-container">
             <table cellspacing="0" class="tabla_visitas">
-            <?php
-                include('../controllers/cargar-visitas.php')            
-            ?>
-		</table>
+                <?php
+                    include('../controllers/cargar-visitas.php')            
+                ?>
+		    </table>
         </div>
     </main>
 
