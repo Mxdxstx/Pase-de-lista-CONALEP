@@ -1,11 +1,9 @@
 <?php
 include("conexion.php");
 date_default_timezone_set('America/Mazatlan');
-$fechaHoraActual = date("Y-m-d");
+//$fechaHoraActual = date("Y-m-d");
 
-$sql = "SELECT * FROM `visitas`  
-        WHERE fecha_hora_entrada LIKE '%$fechaHoraActual%'
-        ORDER BY fecha_hora_entrada DESC";
+$sql = "SELECT * FROM visitas ORDER BY fecha_hora_entrada DESC";
 
 $resultado = $conexion->query($sql);
 
