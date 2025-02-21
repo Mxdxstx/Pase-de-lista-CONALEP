@@ -28,6 +28,7 @@ if ($resultado->num_rows > 0) {
                     <th>Nombre(s)</th>
                     <th>Grupo</th>
                     <th>Fecha</th>
+                    <th>Estatus</th>
                 </tr>
             </thead>
         <tbody>";
@@ -39,6 +40,7 @@ if ($resultado->num_rows > 0) {
         echo "<td>" . $fila["nombres"] . "</td>";
         echo "<td>" . $fila["grupo"] . "</td>";
         echo "<td>" . $fila["fecha"] . "</td>";
+        echo "<td>Presente</td>";
         echo "</tr>";
     }
     echo "</table>";
