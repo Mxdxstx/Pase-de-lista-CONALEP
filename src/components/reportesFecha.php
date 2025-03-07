@@ -70,13 +70,13 @@ include '../controllers/consultaReportesFecha.php';
             </a>
 			<a href="reportesFecha.php" class="selected">
                 <div class="option">
-					<img src="../../public/assets/img/Img_Iconos/calendar.svg" class="ic_prefectos"  title="Reporte Por Fechas"></i>
+					<img src="../../public/assets/img/Img_Iconos/date.svg" class="ic_prefectos"  title="Reporte Por Fechas"></i>
 					<h4>Reportes Por Fechas</h4>
                 </div>
             </a>
 			<a href="reportesPeriodo.php" >
                 <div class="option">
-					<img src="../../public/assets/img/Img_Iconos/chart.svg" class="ic_prefectos" title="Reporte Por Periodo"></i>
+					<img src="../../public/assets/img/Img_Iconos/calendar.svg" class="ic_prefectos" title="Reporte Por Periodo"></i>
 					<h4>Reportes Por Periodo</h4>
                 </div>
             </a>
