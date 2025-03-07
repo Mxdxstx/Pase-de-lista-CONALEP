@@ -14,7 +14,7 @@ include '../controllers/consultaReportesFecha.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prefectos</title>
+    <title>Reportes por Fecha</title>
 
 	<link rel="stylesheet" href="../css/reportes.css">	
     <script src="../scripts/prefectos/jspdf.umd.min.js"></script>
@@ -123,7 +123,7 @@ include '../controllers/consultaReportesFecha.php';
         </div>			
     </main>	
 	<script src="../scripts/prefectos/barralateral.js"></script>
-	<script src="../scripts/prefectos/exportarPDF.js"></script>
+	<script src="../scripts/prefectos/exportarPDFechas.js"></script>
     <script src="../scripts/prefectos/validacionesReportes.js"></script>
 </body>
 </html
