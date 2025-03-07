@@ -27,8 +27,8 @@ if ($resultado->num_rows > 0) {
                     <th>P. Apellido</th>
                     <th>Nombre(s)</th>
                     <th>Grupo</th>
-                    <th>Fecha</th>
                     <th>Estatus</th>
+                    <th>Fecha</th>
                 </tr>
             </thead>
         <tbody>";
@@ -39,8 +39,8 @@ if ($resultado->num_rows > 0) {
         echo "<td>" . $fila["primer_apellido"] . "</td>";
         echo "<td>" . $fila["nombres"] . "</td>";
         echo "<td>" . $fila["grupo"] . "</td>";
-        echo "<td>" . $fila["fecha"] . "</td>";
         echo "<td>Presente</td>";
+        echo "<td>" . $fila["fecha"] . "</td>";
         echo "</tr>";
     }
     echo "</table>";
