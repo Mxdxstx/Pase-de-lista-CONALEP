@@ -84,13 +84,13 @@ if ($resultado->num_rows > 0) {
             </a>
 			<a href="reportesFecha.php" >
                 <div class="option">
-					<img src="../../public/assets/img/Img_Iconos/calendar.svg" class="ic_prefectos"  title="Reporte Por Fechas"></i>
+					<img src="../../public/assets/img/Img_Iconos/date.svg" class="ic_prefectos"  title="Reporte Por Fechas"></i>
 					<h4>Reportes Por Fechas</h4>
                 </div>
             </a>
 			<a href="reportesPeriodo.php" >
                 <div class="option">
-					<img src="../../public/assets/img/Img_Iconos/chart.svg" class="ic_prefectos" title="Reporte Por Periodo"></i>
+					<img src="../../public/assets/img/Img_Iconos/calendar.svg" class="ic_prefectos" title="Reporte Por Periodo"></i>
 					<h4>Reportes Por Periodo</h4>
                 </div>
             </a>
@@ -103,13 +103,12 @@ if ($resultado->num_rows > 0) {
         </div>
         </div>
         <main class="main">
-            <form action="prefectos.php" method="post">
+            <form method="post" action="">
                 <div id="contenedor-formulario">
                 <p class="contador">Total de alumnos registrados hoy: <strong><?php echo $totalAlumnos; ?></strong></p>
   
                 <h2 for="codigo">Escanea o Captura el código de barras</h2><br>
                 <input type="text" id="matriculaAuto" name="matriculaAuto" autofocus>
-                <!-- Agregar la seccion de comentarios-->
                 <div class="contenedor-principal">
                     <button type="submit" name="btnEnviar" class="btnEnviar">Enviar</button>
                 </div> <br>
@@ -124,6 +123,7 @@ if ($resultado->num_rows > 0) {
             include("../controllers/registrar-asistencia.php");}
             ?>
             <div class="table-container">
+                <br>
                 <table>
                     <?php
                     include("../controllers/cargar-asistencias.php");
