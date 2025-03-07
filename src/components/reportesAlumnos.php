@@ -13,7 +13,7 @@ include '../controllers/consultaReportesAlumnos.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportes por matrícula</title>
+    <title>Reportes por Matrícula</title>
 
 	<link rel="stylesheet" href="../css/reportes.css">
     <link rel="stylesheet" href="../css/estilosReportes.css">
@@ -124,7 +124,7 @@ include '../controllers/consultaReportesAlumnos.php';
         </div>			
     </main>
 	<script src="../scripts/prefectos/barralateral.js"></script>
-	<script src="../scripts/prefectos/exportarPDF.js"></script>
+	<script src="../scripts/prefectos/exportarPDFAlumnos.js"></script>
     <script src="../scripts/prefectos/validacionesReportes.js"></script>
 
 </body>
