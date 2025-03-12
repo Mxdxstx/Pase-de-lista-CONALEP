@@ -32,4 +32,8 @@ if (isset($_POST['btnEnviar'])) {
     }
         $conexion->close();
     }
+
+    echo "<script>
+        history.replaceState(null, null, location.pathname);
+    </script>";
 ?>
