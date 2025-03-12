@@ -28,4 +28,7 @@ include("conexion.php");
     }
         $conexion->close();
     }
+    echo "<script>
+        history.replaceState(null, null, location.pathname);
+    </script>"
 ?>
