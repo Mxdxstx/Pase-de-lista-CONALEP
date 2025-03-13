@@ -22,13 +22,13 @@ if (isset($_POST['btnEnviar'])) {
                     </script>";
                 exit();
             } else {
-                echo "<p class='bad'>Error al insertar el registro: " . $conexion->error . "</p>";
+                echo " <br> <p class='bad'>Error al insertar el registro: " . $conexion->error . "</p>";
             }
         } else {
-            echo "<p class='alert'>La matrícula ingresada no existe en la base de datos.</p>";
+            echo " <br> <p class='alert'>La matrícula ingresada no existe en la base de datos.</p>";
         }
     } else {
-        echo "<p class='alert'>No se ha ingresado ninguna matrícula.</p>";
+        echo " <br> <p class='alert'>No se ha ingresado ninguna matrícula.</p>";
     }
         $conexion->close();
     }
