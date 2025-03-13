@@ -89,7 +89,7 @@ include '../controllers/contadorAlumnos.php';
                 <input type="text" id="matriculaAuto" name="matriculaAuto" autofocus>
                 <div class="contenedor-principal">
                     <button type="submit" name="btnEnviar" class="btnEnviar">Enviar</button>
-                </div> <br>
+                </div>
             </form>
             <div id="customAlert" class="modal">
                 <div class="modal-content">
