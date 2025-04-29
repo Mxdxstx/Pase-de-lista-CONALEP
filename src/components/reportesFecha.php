@@ -4,7 +4,7 @@ if(empty($_SESSION["id"])) {
     header("location: login.php");
 }
 include '../controllers/conexion.php';
-include '../controllers/consultaReportesAlumnos.php';
+include '../controllers/consultaReportesFecha.php';
 
 ?>
 
@@ -14,11 +14,9 @@ include '../controllers/consultaReportesAlumnos.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportes por Matrícula</title>
+    <title>Reportes por Fecha</title>
 
-	<link rel="stylesheet" href="../css/reportes.css">
-    <link rel="stylesheet" href="../css/estilosReportes.css">
-	
+	<link rel="stylesheet" href="../css/reportes.css">	
     <script src="../scripts/prefectos/jspdf.umd.min.js"></script>
     <script src="../scripts/prefectos/jspdf.plugin.autotable.min.js"></script>
 
@@ -31,7 +29,7 @@ include '../controllers/consultaReportesAlumnos.php';
             <img src="../../public/assets/img/Img_Iconos/bar.svg" id="btn_open" class="ic_barra"></i>
         </div>
 		<div class="main_title">
-            <h2>Reportes por Alumno</h2>
+            <h2>Reportes por Fecha</h2>
         </div>
         <div class="date"> 
             <h2> Fecha: <?php echo $fecha ?></h2>
@@ -39,7 +37,8 @@ include '../controllers/consultaReportesAlumnos.php';
     </header>
 
     <div class="menu__side" id="menu_side">
-    <div class="name__page">
+
+        <div class="name__page">
             <img src="../../public/assets/img/Img_Prefectos/logo.png" width="35">
             <p>Conalep Juárez 1</p>
         </div>
@@ -63,13 +62,13 @@ include '../controllers/consultaReportesAlumnos.php';
 					<h4>Registro De Visitas</h4>
                 </div>
             </a>    
-            <a href="reportesAlumnos.php" class="selected">
+            <a href="reportesAlumnos.php">
                 <div class="option">
 					<img src="../../public/assets/img/Img_Iconos/student.svg" class="ic_prefectos" title="Reporte Por Alumno"></i>
 					<h4>Reportes Por Alumno</h4>
                 </div>
             </a>
-			<a href="reportesFecha.php" >
+			<a href="reportesFecha.php" class="selected">
                 <div class="option">
 					<img src="../../public/assets/img/Img_Iconos/date.svg" class="ic_prefectos"  title="Reporte Por Fechas"></i>
 					<h4>Reportes Por Fechas</h4>
@@ -81,7 +80,6 @@ include '../controllers/consultaReportesAlumnos.php';
 					<h4>Reportes Por Periodo</h4>
                 </div>
             </a>
-	
 			<a href="../controllers/controlador-cerrar-sesion.php" >
                 <div class="option">
 					<img src="../../public/assets/img/Img_Iconos/right.svg" class="ic_prefectos" title="Cerrar Sesión"></i>
@@ -91,12 +89,12 @@ include '../controllers/consultaReportesAlumnos.php';
         </div>
         </div>
     <main>
-        <h3 class="text-center">
-        <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="formulario-busqueda">
-            <label for="buscar">Buscar Matricula de Alumno: </label>
-            <input type="text" name="buscar" class="form_control" placeholder="" value="<?php echo isset($valor) ? htmlspecialchars($valor) : ''; ?>"/>
-            <button type="submit" id="buscar" onclick="validarFormulario(event)">Buscar</button>
-            <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button> 
+		<h3 class="text-center">
+        <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <label for="fecha">Selecciona una fecha:</label>
+            <input type="date" id="fecha" name="fecha" oninput="validarFecha()" value="<?php echo isset($valor) ? htmlspecialchars($valor) : ''; ?>">
+            <button type="submit" id="btnBuscar" disabled>Buscar</button>
+            <button id="exportarPDF" class="btn btn-success">Exportar Datos a PDF</button>
         </form>
 		</h3>
         <div class="table-container">
@@ -123,10 +121,9 @@ include '../controllers/consultaReportesAlumnos.php';
                 </tbody>
             </table>
         </div>			
-    </main>
+    </main>	
 	<script src="../scripts/prefectos/barralateral.js"></script>
-	<script src="../scripts/prefectos/exportarPDFAlumnos.js"></script>
+	<script src="../scripts/prefectos/exportarPDFechas.js"></script>
     <script src="../scripts/prefectos/validacionesReportes.js"></script>
-
 </body>
-</html>
+</html
