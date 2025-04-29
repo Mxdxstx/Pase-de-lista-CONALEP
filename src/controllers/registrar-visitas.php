@@ -2,7 +2,7 @@
 include("conexion.php");
     if(isset($_POST['btnEnviar'])){
         if (!empty($_POST["nombre"] && (!empty($_POST["motivo"])) )) {
-            date_default_timezone_set('America/Mazatlan');
+            date_default_timezone_set('America/Denver');
             $nombre = trim($_POST["nombre"]);
             $motivo = trim($_POST["motivo"]);
             $fechaHoraActual = date("Y-m-d H:i:s");
@@ -21,10 +21,10 @@ include("conexion.php");
                     </script>";
                 exit();
             } else {
-                echo "<p class='bad'>Error al insertar el registro: " . $conexion->error . "</p>";
+                echo "<p class='bad'>Error al insertar el registro: " . $conexion->error . "</p> <br>";
             }
     }else{
-        echo "<p class='alert'>Favor de llenar los campos correctamente.</p>";
+        echo "<p class='alert'>Favor de llenar los campos correctamente.</p>  <br>";
     }
         $conexion->close();
     }
