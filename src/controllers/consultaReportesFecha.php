@@ -18,7 +18,7 @@ if (isset($_SESSION['fecha'])) {
 
 $consulta = "SELECT asistencias.matricula, alumnos.primer_apellido, alumnos.segundo_apellido, alumnos.nombres, fecha_hora FROM asistencias INNER JOIN alumnos ON asistencias.matricula = alumnos.matricula $where";
 $guardar = $conexion->query($consulta);
-date_default_timezone_set('America/Mazatlan');
+date_default_timezone_set('America/Denver');
 $fecha = date("d-m-Y");
 
 ?>
