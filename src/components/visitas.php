@@ -4,7 +4,7 @@ if(empty($_SESSION["id"])) {
     header("location: login.php");
 }
 include '../controllers/conexion.php';
-date_default_timezone_set('America/Mazatlan');
+include '../controllers/cargar-visitas.php';       
 
 $fecha = date("d-m-Y");
 ?>
@@ -21,6 +21,9 @@ $fecha = date("d-m-Y");
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/reportes.css">
     <link rel="stylesheet" href="../css/visitas.css">
+
+    <script src="../scripts/prefectos/jspdf.umd.min.js"></script>
+    <script src="../scripts/prefectos/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body id="body">
     
@@ -56,7 +59,7 @@ $fecha = date("d-m-Y");
             </a>    
             <a href="visitas.php" class="selected">
                 <div class="option">
-                    <img src="../../public/assets/img/Img_Iconos/person.svg" class="ic_prefectos" title="Registro De Visitas"></i>
+                    <img src="../../public/assets/img/Img_Iconos/visit.svg" class="ic_prefectos" title="Registro De Visitas"></i>
 					<h4>Registro De Visitas</h4>
                 </div>
             </a>    
@@ -103,6 +106,7 @@ $fecha = date("d-m-Y");
                 <button id="enviar" name="btnEnviar" class="btnEnviar" onclick="validarVisita(event)">
                     Enviar
                 </button>
+                <button id="exportarPDF" type="button" class="btn btn-success">Exportar Datos a PDF</button> 
             </form>
         </h3>
         <div id="customAlert" class="modal">
@@ -111,19 +115,35 @@ $fecha = date("d-m-Y");
             </div>
         </div>
         <?php
-		if(isset($_POST['btnEnviar'])){
+		    if(isset($_POST['btnEnviar'])){
 		    include("../controllers/registrar-visitas.php");}
 		?>
         <div class="table-container">
-            <table cellspacing="0" class="tabla_visitas">
-                <?php
-                    include('../controllers/cargar-visitas.php')            
-                ?>
-		    </table>
+            <table id="datos">
+                <thead class="text-muted">
+                <tr>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Asunto</th>
+                    <th class="text-center">Fecha y Hora de Entrada</th>
+                    <th class="text-center">Identificación Mostrada</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php while($row = $resultado->fetch_assoc()){?>
+                    <tr>
+                    <td><?php echo $row['nombre']; ?></td>
+                    <td><?php echo $row['asunto']; ?></td>
+                    <td><?php echo $row['fecha_hora_entrada']; ?></td>
+                    <td><?php echo $row['identificacion']; ?></td>
+                    </tr>
+                <?php }?>
+                </tbody>
+            </table>
         </div>
     </main>
 
     <script src="../scripts/prefectos/barralateral.js"></script>
     <script src="../scripts/prefectos/horaActual.js"></script>
+    <script src="../scripts/prefectos/exportarPDFVisitas.js"></script>
 </body>
 </html>
