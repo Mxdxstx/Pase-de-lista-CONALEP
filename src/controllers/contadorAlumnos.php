@@ -1,7 +1,7 @@
 <?php
 $consulta = "SELECT * FROM usuarios";
 $guardar = $conexion->query($consulta);
-date_default_timezone_set('America/Mazatlan');
+date_default_timezone_set('America/Denver');
 $fecha = date("d-m-Y");
 
 $sql = "
