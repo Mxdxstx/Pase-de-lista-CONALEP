@@ -59,7 +59,7 @@ include '../controllers/consultaReportesPeriodo.php';
             </a>    
             <a href="visitas.php" >
                 <div class="option">
-                    <img src="../../public/assets/img/Img_Iconos/person.svg" class="ic_prefectos" title="Registro De Visitas"></i>
+                    <img src="../../public/assets/img/Img_Iconos/visit.svg" class="ic_prefectos" title="Registro De Visitas"></i>
 					<h4>Registro De Visitas</h4>
                 </div>
             </a>    
