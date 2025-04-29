@@ -1,6 +1,6 @@
 <?php
 include("conexion.php");
-date_default_timezone_set('America/Mazatlan');
+date_default_timezone_set('America/Denver');
 $fechaHoraActual = date("Y-m-d H:i:s");
 
 
