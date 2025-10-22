@@ -1,12 +1,10 @@
-/* Estilos generales */
 body {
     background: lightgray;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* Header */
 header {
     margin: 10px;
     display: flex;
@@ -66,8 +64,6 @@ header {
     transform: scale(0.98);
 }
 
-
-/* Contenido principal */
 .main {
     display: flex;
     flex-wrap: wrap;
@@ -188,7 +184,6 @@ header {
 }
 
 
-/* Switch */
 .switch {
     position: relative;
     display: inline-block;

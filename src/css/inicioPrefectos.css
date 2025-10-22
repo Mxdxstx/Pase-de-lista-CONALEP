@@ -4,6 +4,7 @@ h1, p, .img_prefectos {
 
 body {
     background: #f5f5f5;
+    font-family: 'Inter', sans-serif;
 }
 
 .main_title {
@@ -75,7 +76,7 @@ header {
     font-size: 1em;
     font-weight: 700;
     animation: fadeInDown 1s ease-out;
-    color: black; /* Cambia el color según tu preferencia */
+    color: black; 
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 

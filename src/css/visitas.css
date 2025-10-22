@@ -1,6 +1,6 @@
 body{
     background:#F0F0F0;  
-
+    font-family: 'Inter', sans-serif;
 }
 .tabla{
     padding: 20px;
@@ -97,12 +97,10 @@ header{
     background: #005e48;
     transform: scale(0.98);
 }
-/*Ocultar scroll para chrome, safari y opera*/
 .menu__side::-webkit-scrollbar{
     display: none;
 }
 
-/*Ocultar scroll para IE, Edge y Firefox*/
 .menu__side{
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -167,7 +165,6 @@ a.selected{
     top: 10%;
     left: -30px;
 }
-/*Modal*/
 .modal {
     display: none; 
     position: fixed;
@@ -195,8 +192,6 @@ a.selected{
     font-size: 18px; 
 }
 
-/*Clases para usar en JavaScript*/
-
 .body_move{
     margin-left: 250px;
 }
@@ -204,6 +199,8 @@ a.selected{
 .menu__side_move{
     width: 250px;
 }
+
+/*Responsividad*/
 
 @media screen and (max-width: 760px){
     .body_move{

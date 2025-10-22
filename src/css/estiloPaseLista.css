@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -26,7 +26,7 @@ body {
     padding: 12px 20px; 
     margin: 10px 0;
     font-size: 16px; 
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
     border: 2px solid #ccc;
     border-radius: 8px; 
     outline: none; 
@@ -57,7 +57,7 @@ body {
 .titulo-con-imagen h2 {
     margin: 0; 
     font-size: 24px; 
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .titulo-con-imagen img {
@@ -75,7 +75,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 textarea {
     width: 30%; 
@@ -164,7 +164,7 @@ header{
     padding: 12px 20px; 
     margin: 10px 0; 
     font-size: 16px; 
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Inter', sans-serif;
     border: 1px solid #d1d1d1; 
     border-radius: 8px; 
     background-color: #ffffff; 
@@ -179,7 +179,6 @@ header{
     outline: none;
 }
 
-/*Estilo tabla de registros*/
 th {
     background-color: rgb(0, 126, 103);
     color: white;
@@ -245,11 +244,10 @@ thead {
     transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
-/*Ocultar scroll para chrome, safari y opera*/
 .menu__side::-webkit-scrollbar{
     display: none;
 }
-/*Ocultar scroll para IE, Edge y Firefox*/
+
 .menu__side{
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -306,13 +304,13 @@ a.selected{
     top: 10%;
     left: -30px;
 }
-/*Clases para usar en JavaScript*/
 .body_move{
     margin-left: 250px;
 }
 .menu__side_move{
     width: 250px;
 }
+/* Responsividad */
 @media screen and (max-width: 760px){
     .body_move{
         margin-left: 0px;

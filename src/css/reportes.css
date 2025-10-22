@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -187,7 +187,6 @@ input.form_control:focus{
     padding: 5px 10px;
     font-size: 0.875rem;
 }
-/* Estilo para el botón de exportar */
 #exportarPDF {
     display: inline-flex; 
     vertical-align: middle;
@@ -196,12 +195,10 @@ input.form_control:focus{
 #exportarPDF i {
     margin-right: 5px;
 }
-/*Ocultar scroll para chrome, safari y opera*/
 .menu__side::-webkit-scrollbar{
     display: none;
 }
 
-/*Ocultar scroll para IE, Edge y Firefox*/
 .menu__side{
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -280,7 +277,6 @@ a.selected{
     width:100%;        
     overflow:hidden;        
 }
-/* configuración en común de las columnas */
 .columnas {
     float:left;
     width:100%;
@@ -301,27 +297,24 @@ td, th{
     overflow: hidden;
     margin-bottom: 10px;
 }
-/* 2 columnas - configuración para el menú izquierdo */
 .envoltura .columnas {
     right:85%;          
     margin-top: 20px;
 }
 .envoltura .col1 {
-    width:83%;          /* el ancho de la columna derecha */
+    width:83%;          
     left:100%;          
     background:#fff;
     padding: 5px;
     min-height: 550px;
 }
 .envoltura .col2 {
-    width:13%;          /* el ancho de la columna izquierda */
+    width:13%;         
     left:2%;            
     background:#fff;
 	min-height: 550px;
 }
 
-
-/* Estilo para el encabezado */
 .encabezado {
     display: flex;
 	justify-content: space-between;
