@@ -19,6 +19,9 @@ if(!empty($_POST['btningresar'])){
         if($datos->id_rol == 2){
             header("location: inicioPrefectos.php");
         }
+        if($datos->id_rol == 1){
+            header("location: inicioAdministrador.php");
+        }
           
        }else{
         $_SESSION['error'] = '¡Credenciales incorrectas!';
