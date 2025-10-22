@@ -1,4 +1,3 @@
-//TODO: cambiarlo a un script externo
 function cargarAlumnos() {
     var selectedGrupo = document.getElementById("grupo").value;
 
