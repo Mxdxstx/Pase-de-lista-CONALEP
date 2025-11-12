@@ -1,0 +1,149 @@
+<?php
+session_start();
+if(empty($_SESSION["id"])) {
+    header("location: login.php");
+}
+include '../controllers/conexion.php';
+include '../controllers/cargar-visitas.php';       
+
+$fecha = date("d-m-Y");
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Visitas</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/reportes.css">
+    <link rel="stylesheet" href="../css/visitas.css">
+
+    <script src="../scripts/prefectos/jspdf.umd.min.js"></script>
+    <script src="../scripts/prefectos/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body id="body">
+    
+    <header>
+        <div class="icon__menu">
+        <img src="../../public/assets/img/Img_Iconos/bar.svg" id="btn_open" class="ic_barra"></i>
+        </div>
+        <div class="main_title">
+            <h2>Registro de Visitas</h2>
+        </div>
+		<div class="date">
+            <h2> Fecha: <?php echo $fecha ?></h2>
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+        <div class="name__page">
+            <img src="../../public/assets/img/Img_Prefectos/logo.png" width="35">
+            <p>Conalep Juárez 1</p>
+        </div>
+        <div class="options__menu">	
+			<a href="inicioPrefectos.php" >
+                <div class="option">
+                    <img src="../../public/assets/img/Img_Iconos/house.svg" class="ic_prefectos" title="Inicio"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+            <a href="prefectos.php" >
+                <div class="option">
+                    <img src="../../public/assets/img/Img_Iconos/check.svg" class="ic_prefectos" title="Pase De Lista"></i>
+					<h4>Pase De Lista</h4>
+                </div>
+            </a>    
+            <a href="visitas.php" class="selected">
+                <div class="option">
+                    <img src="../../public/assets/img/Img_Iconos/visit.svg" class="ic_prefectos" title="Registro De Visitas"></i>
+					<h4>Registro De Visitas</h4>
+                </div>
+            </a>    
+            <a href="reportesAlumnos.php" >
+                <div class="option">
+					<img src="../../public/assets/img/Img_Iconos/student.svg" class="ic_prefectos" title="Reporte Por Alumno"></i>
+					<h4>Reportes Por Alumno</h4>
+                </div>
+            </a>
+			<a href="reportesFecha.php" >
+                <div class="option">
+					<img src="../../public/assets/img/Img_Iconos/date.svg" class="ic_prefectos"  title="Reporte Por Fechas"></i>
+					<h4>Reportes Por Fechas</h4>
+                </div>
+            </a>
+			<a href="reportesPeriodo.php" >
+                <div class="option">
+					<img src="../../public/assets/img/Img_Iconos/calendar.svg" class="ic_prefectos" title="Reporte Por Periodo"></i>
+					<h4>Reportes Por Periodo</h4>
+                </div>
+            </a>
+			<a href="../controllers/controlador-cerrar-sesion.php" >
+                <div class="option">
+					<img src="../../public/assets/img/Img_Iconos/right.svg" class="ic_prefectos" title="Cerrar Sesión"></i>
+                    <h4>Cerrar Sesion</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <h3 class="text-center">
+            <form class="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <label class="instrucciones">Por favor, llene los siguientes campos</label>
+                <input type="text" name="nombre" class="input_nombre" placeholder=" Ingrese su nombre completo" pattern="[a-zA-Z\s]+" title="Solo se permiten letras"/>
+                <input type="text" name="motivo" class="input_motivo" placeholder=" Motivo de visita" />
+                <select name="identificacion" id="id_select" class="id_select">
+                    <option value="Gafete">Gafete</option>
+                    <option value="INE">INE</option>
+                    <option value="Credencial Escolar">Credencial Escolar</option>
+                    <option value="Licencia de conducir">Licencia de conducir</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <button id="enviar" name="btnEnviar" class="btnEnviar" onclick="validarVisita(event)">
+                    Enviar
+                </button>
+                <button id="exportarPDF" type="button" class="btn btn-success">Exportar Datos a PDF</button> 
+            </form>
+        </h3>
+        <div id="customAlert" class="modal">
+            <div class="modal-content">
+                <p id="modalMessage"></p>
+            </div>
+        </div>
+        <?php
+		    if(isset($_POST['btnEnviar'])){
+		    include("../controllers/registrar-visitas.php");}
+		?>
+        <div class="table-container">
+            <table id="datos">
+                <thead class="text-muted">
+                <tr>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Asunto</th>
+                    <th class="text-center">Fecha y Hora de Entrada</th>
+                    <th class="text-center">Identificación Mostrada</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php while($row = $resultado->fetch_assoc()){?>
+                    <tr>
+                    <td><?php echo $row['nombre']; ?></td>
+                    <td><?php echo $row['asunto']; ?></td>
+                    <td><?php echo $row['fecha_hora_entrada']; ?></td>
+                    <td><?php echo $row['identificacion']; ?></td>
+                    </tr>
+                <?php }?>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="../scripts/prefectos/barralateral.js"></script>
+    <script src="../scripts/prefectos/horaActual.js"></script>
+    <script src="../scripts/prefectos/exportarPDFVisitas.js"></script>
+</body>
+</html>
